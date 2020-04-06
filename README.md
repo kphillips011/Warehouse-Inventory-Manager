@@ -19,9 +19,6 @@ Makes sure that the group is meeting the project requirements. Researches relate
 Workflow: Weekly meetings through zoom on Thursdays at 3pm, communication through slack private message group, communicating push and pull from Github, defined weekly milestones, etc
 Github Repository: https://github.com/kphillips011/Warehouse-Inventory-Manager.git
 
-Figures 
-An example of a log that our data would be printed out to
-
 Project Design:
 Language: Java
 Useful data structures: Maps, Lists, Arrays, File I/O, FIFO Queue, Sorting, and possibly Recursion
