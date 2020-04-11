@@ -10,6 +10,7 @@ public class Inventory {
     public Inventory()
     {
         // TODO
+
     }
 
     // add new item entry unless the <data structure> already contains an item with the specified ID;
@@ -22,7 +23,6 @@ public class Inventory {
     }
 
     // decrement item quantity, unless quantity is already at 0
-    // in which case we remove the item from the data structure
     // ID passed as parameter
     public boolean removeItem()
     {
