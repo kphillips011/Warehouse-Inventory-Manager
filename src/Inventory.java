@@ -1,22 +1,30 @@
-// imports
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 // data structures to store inventory, add/remove methods, sort/search?
 // possible Comparable implementation(s)?
 public class Inventory {
 
     // TODO insert <data structure> and global instance variables here
+    ArrayList<Product> inventory;
 
     // constructor, creates new <data structure>
     public Inventory()
     {
         // TODO
+        inventory = new ArrayList<Product>();
+    }
 
+    public Inventory(int size)
+    {
+        inventory = new ArrayList<Product>(size);
     }
 
     // add new item entry unless the <data structure> already contains an item with the specified ID;
     // else just increment the item quantity
     // ID passed as parameter
-    public boolean addItem()
+    public boolean addItem(int ID)
     {
         // TODO
         return false;
