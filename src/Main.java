@@ -1,5 +1,6 @@
 // imports
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 // the main program reads a file stream of input 'items' and adds them to our inventory, output a file
@@ -30,6 +31,11 @@ public class Main {
         inv.getProductInfo(1);
         inv.getProductInfo(2);
         inv.getProductInfo(3);
+
+        /* Test for Log file creation (creates in IntelliJ Warehouse directory) (Works; Tested 4/13)
+        Log newLog = new Log();
+        newLog.writeFile();
+        */
     }
 
     public void checkInventoryIndex()
@@ -39,6 +45,14 @@ public class Main {
 
     public void readFile()
     {
-        //TODO
+        try {
+            File file = new File("//TODO");
+            Scanner fileReader = new Scanner(file);
+            //TODO read file input, add to inventory
+            fileReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("No file found.");
+            e.printStackTrace();
+        }
     }
 }
