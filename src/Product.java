@@ -9,15 +9,40 @@ public class Product {
     // used when product info is unconfirmed
     public Product(int n)
     {
-        this.number = n;
-        this.name = "unnamed";
-        this.price = 0.00;
-        this.quantity = 0;
+        //this.number = n;
+        //this.name = "unnamed";
+        //this.price = 0.00;
+        //this.quantity = 0;
+
+        // short version of above
+        // calls default constructor
+        // validity check done by default constructor
+        this(n, "unnamed", 0.00, 0);
     }
 
     // constructs new Product object using number, name, price, and quantity
-    public Product(int n, String name, double p, int q)
+    public Product(int n, String name, double p, int q) throws IllegalArgumentException
     {
+        // validity checking for n
+        if (n < 0) {
+            throw new IllegalArgumentException("inventory ID cannot be less than 0");
+        }
+
+        // validity checking for name
+        if (name == null) {
+            throw new IllegalArgumentException("name is null");
+        }
+
+        //  validity checking for price
+        if (p < 0) {
+            throw new IllegalArgumentException("price cannot be less than 0");
+        }
+
+        // validity checking for quantity
+        if (q < 0) {
+            throw new IllegalArgumentException("quantity cannot be less than 0");
+        }
+
         this.number = n;
         this.name = name;
         this.price = p;
