@@ -130,6 +130,7 @@ public class Inventory {
         return (inventory.entrySet() + "");
     }
 
+    // prints out specified ID's product info to the console
     public void getProductInfo(int ID)
     {
         if (inventory.containsKey(ID)) {

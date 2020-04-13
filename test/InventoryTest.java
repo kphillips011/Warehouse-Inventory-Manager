@@ -6,37 +6,56 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryTest {
 
-    // TODO declare a reference to the SUT (system under test), i.e, Inventory
+    Inventory SUT = new Inventory();
 
     @BeforeEach
     public void setUp() {
-        // TODO create the SUT instance
+        SUT.addProduct("prod 1",1.11,1);
+        SUT.addProduct("prod 2",2.22,2);
+        SUT.addProduct("prod 3",3.33,3);
     }
 
     @AfterEach
     public void tearDown() {
-        // TODO set the SUT instance to null
+        SUT = null;
     }
 
     @Test
     public void testEmpty() {
-        // TODO
+        SUT.inventory.clear();
+        assertTrue(SUT.inventory.isEmpty());
     }
 
     @Test
     public void testNonEmpty() {
-        // TODO
+        assertFalse(SUT.inventory.isEmpty());
+    }
+
+    @Test
+    public void testAddProduct() {
+        SUT.addProduct("prod 4",4.44,4);
+        assertTrue(SUT.inventory.containsKey(4));
     }
 
     @Test
     public void testAddItem() {
-        // TODO
+        assertTrue(SUT.addItem(1));
+        assertEquals(2,SUT.inventory.get(1).getQuantity());
+    }
+
+    @Test
+    public void testRemoveProduct() {
+        SUT.removeProduct(3);
+        assertFalse(SUT.inventory.containsKey(3));
     }
 
     @Test
     public void testRemoveItem() {
-        // TODO
+        assertTrue(SUT.removeItem(3));
+        assertEquals(2,SUT.inventory.get(3).getQuantity());
     }
+
+    // TODO add more tests with exceptions
 
     @Test
     public void testSortByID() {
