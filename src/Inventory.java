@@ -29,9 +29,9 @@ public class Inventory {
         }
     }
 
-    // adds a new item to Inventory
+    // adds a new product to Inventory
     // name, price, and quantity of the item passed as parameter
-    public void addItem(String name, double price, int quantity)
+    public void addProduct(String name, double price, int quantity)
     {
         int ID = inventory.size() + 1;
         inventory.put(ID, new Product(ID,name,price,quantity));
@@ -41,7 +41,6 @@ public class Inventory {
     // ID passed as parameter
     public boolean removeItem(int ID)
     {
-        // TODO
         if (inventory.get(ID).getQuantity() > 0)
         {
             inventory.get(ID).decQuantity(1);
@@ -56,7 +55,7 @@ public class Inventory {
     // removes the product and its associated ID from the Inventory
     public boolean removeProduct(int ID)
     {
-        if(inventory.containsKey(ID))
+        if (inventory.containsKey(ID))
         {
             inventory.remove(ID);
             return true;

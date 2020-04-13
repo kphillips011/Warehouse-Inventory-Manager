@@ -8,9 +8,9 @@ public class Main {
     public static void main(final String[] args) {
         // testing for now
         Inventory inv = new Inventory();
-        inv.addItem("item one",1.11,1);
-        inv.addItem("item two",2.22,2);
-        inv.addItem("item three",3.33,3);
+        inv.addProduct("item one",1.11,1);
+        inv.addProduct("item two",2.22,2);
+        inv.addProduct("item three",3.33,3);
         System.out.println(inv);
         inv.getProductInfo(1);
         inv.getProductInfo(2);
