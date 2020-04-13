@@ -55,7 +55,7 @@ public class InventoryTest {
         assertEquals(2,SUT.inventory.get(3).getQuantity());
     }
 
-    // TODO add more tests with exceptions
+    // TODO add more tests with exceptions, checking different variables, etc
 
     @Test
     public void testSortByID() {

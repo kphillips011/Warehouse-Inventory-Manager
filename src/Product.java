@@ -1,11 +1,12 @@
 public class Product {
 
-    private int number;
+    private int number; // inventory ID
     private String name;
     private double price;
     private int quantity;
 
-    // constructs new Product object using only a number
+    // constructs new Product object using only a number;
+    // used when product info is unconfirmed
     public Product(int n)
     {
         this.number = n;
