@@ -9,12 +9,6 @@ public class Product {
     // used when product info is unconfirmed
     public Product(int n)
     {
-        //this.number = n;
-        //this.name = "unnamed";
-        //this.price = 0.00;
-        //this.quantity = 0;
-
-        // short version of above
         // calls default constructor
         // validity check done by default constructor
         this(n, "unnamed", 0.00, 0);
@@ -56,8 +50,12 @@ public class Product {
     }
 
     // sets Product's associated ID number
-    public void setNumber(int n)
+    public void setNumber(int n) throws IllegalArgumentException
     {
+        // validity checking for n
+        if (n < 0) {
+            throw new IllegalArgumentException("inventory ID cannot be less than 0");
+        }
         this.number = n;
     }
 
@@ -68,8 +66,12 @@ public class Product {
     }
 
     // sets Product's associated product name
-    public void setName(String name)
+    public void setName(String name) throws IllegalArgumentException
     {
+        // validity checking for name
+        if (name == null) {
+            throw new IllegalArgumentException("name is null");
+        }
         this.name = name;
     }
 
@@ -80,8 +82,12 @@ public class Product {
     }
 
     // sets Product's associated price
-    public void setPrice(double p)
+    public void setPrice(double p) throws IllegalArgumentException
     {
+        //  validity checking for price
+        if (p < 0) {
+            throw new IllegalArgumentException("price cannot be less than 0");
+        }
         this.price = p;
     }
 
@@ -94,18 +100,27 @@ public class Product {
     // sets Product's associated quantity of items
     public void setQuantity(int q)
     {
+        checkValidQuantity(q);
         this.quantity = q;
     }
 
     // increments quantity by specified number
     public void incQuantity(int num)
     {
+        checkValidQuantity(num);
         this.quantity += num;
     }
 
     // decrements quantity by specified number
     public void decQuantity(int num)
     {
+        checkValidQuantity(num);
         this.quantity -= num;
+    }
+
+    private void checkValidQuantity(int num) throws IllegalArgumentException {
+        if (num < 0) {
+            throw new IllegalArgumentException("Number must be 0 or greater");
+        }
     }
 }
