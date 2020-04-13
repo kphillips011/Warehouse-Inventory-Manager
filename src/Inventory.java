@@ -13,12 +13,6 @@ public class Inventory {
         inventory = new HashMap<Integer,Product>();
     }
 
-    // constructor that allows the user to specify Inventory's size
-    public Inventory(int size)
-    {
-        inventory = new HashMap<Integer,Product>(size);
-    }
-
     // increments quantity of item with specified ID;
     // ID passed as parameter
     // the boolean confirms whether the ID is present or not,
@@ -39,7 +33,7 @@ public class Inventory {
     // name, price, and quantity of the item passed as parameter
     public void addItem(String name, double price, int quantity)
     {
-        int ID = inventory.size() - 1;
+        int ID = inventory.size() + 1;
         inventory.put(ID, new Product(ID,name,price,quantity));
     }
 
@@ -129,6 +123,24 @@ public class Inventory {
     public void findLowestQuantityItem()
     {
         // TODO
+    }
+
+    // returns String representation of the Inventory
+    public String toString()
+    {
+        return (inventory.entrySet() + "");
+    }
+
+    public void getProductInfo(int ID)
+    {
+        if (inventory.containsKey(ID)) {
+            System.out.println(ID + ": " + inventory.get(ID).getName() + ", " +
+                    inventory.get(ID).getPrice() + ", " + inventory.get(ID).getQuantity());
+        }
+        else
+        {
+            System.out.print("Sorry, ID not found");
+        }
     }
 
 }
