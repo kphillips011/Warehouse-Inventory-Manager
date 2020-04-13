@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 // data structures to store inventory, add/remove methods, sort/search?
 // possible Comparable implementation(s)?
@@ -67,9 +66,9 @@ public class Inventory {
     }
 
     // returns the Inventory sorted by item ID, in ascending order
-    public void sortByID()
+    public TreeMap<Integer,Product> sortByID()
     {
-        // TODO
+        return new TreeMap<Integer, Product>(inventory);
     }
 
     // returns the Inventory sorted by item quantity, in ascending order
