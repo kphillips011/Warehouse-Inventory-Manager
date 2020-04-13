@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -6,36 +5,52 @@ import java.util.Map;
 // possible Comparable implementation(s)?
 public class Inventory {
 
-    // TODO insert <data structure> and global instance variables here
-    ArrayList<Product> inventory;
+    // TODO insert global instance variables here
+    Map<Integer,Product> inventory;
 
     // constructor, creates new <data structure>
     public Inventory()
     {
         // TODO
-        inventory = new ArrayList<Product>();
+        inventory = new HashMap<Integer,Product>();
     }
 
     public Inventory(int size)
     {
-        inventory = new ArrayList<Product>(size);
+        inventory = new HashMap<Integer,Product>(size);
     }
 
-    // add new item entry unless the <data structure> already contains an item with the specified ID;
-    // else just increment the item quantity
+    // increments quantity of item with specified ID;
     // ID passed as parameter
+    // the boolean confirms whether the ID is present or not,
+    // and therefore if quantity was incremented or not
     public boolean addItem(int ID)
     {
         // TODO
-        return false;
+        if (inventory.containsKey(ID)) {
+            inventory.get(ID).incQuantity(1);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // adds a new item to inventory
+    // name, price, and quantity of the item passed as parameter
+    public void addItem(String name, double price, int quantity)
+    {
+        // TODO
+        int ID = inventory.size() - 1;
+        inventory.put(ID, new Product(ID,name,price,quantity));
     }
 
     // decrement item quantity, unless quantity is already at 0
     // ID passed as parameter
-    public boolean removeItem()
+    public void removeItem()
     {
         // TODO
-        return false;
     }
 
     // returns the inventory <data structure> sorted by item ID, in ascending order

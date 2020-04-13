@@ -70,4 +70,10 @@ public class Product {
     {
         this.quantity = q;
     }
+
+    // increments quantity by specified number
+    public void incQuantity(int num)
+    {
+        this.quantity += num;
+    }
 }
