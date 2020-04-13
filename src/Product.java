@@ -76,4 +76,10 @@ public class Product {
     {
         this.quantity += num;
     }
+
+    // decrements quantity by specified number
+    public void decQuantity(int num)
+    {
+        this.quantity -= num;
+    }
 }
