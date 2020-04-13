@@ -138,7 +138,7 @@ public class Inventory {
         }
         else
         {
-            System.out.print("Sorry, ID not found");
+            System.out.println("Sorry, ID not found");
         }
     }
 
