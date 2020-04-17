@@ -6,6 +6,8 @@ import java.util.Scanner;
 // the main program reads a file stream of input 'items' and adds them to our inventory, output a file
 public class Main {
 
+    // TODO output log -
+
     public static void main(final String[] args) {
         // testing for now
         Inventory inv = new Inventory();
@@ -16,12 +18,12 @@ public class Main {
         inv.getProductInfo(1);
         inv.getProductInfo(2);
         inv.getProductInfo(3);
-        inv.addItem(1); // quantity of ID '1' should now be 2
+        inv.addItem(1,1); // quantity of ID '1' should now be 2
         System.out.println(inv);
         inv.getProductInfo(1);
         inv.getProductInfo(2);
         inv.getProductInfo(3);
-        inv.removeItem(2); // quantity of ID '2' should now be 1
+        inv.removeItem(2,1); // quantity of ID '2' should now be 1
         System.out.println(inv);
         inv.getProductInfo(1);
         inv.getProductInfo(2);

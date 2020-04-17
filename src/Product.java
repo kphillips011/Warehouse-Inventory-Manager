@@ -111,11 +111,18 @@ public class Product {
         this.quantity += num;
     }
 
-    // decrements quantity by specified number
+    // decrements quantity by specified number and
+    // makes sure that the method won't decrement the quantity
+    // below 0
     public void decQuantity(int num)
     {
         checkValidQuantity(num);
-        this.quantity -= num;
+        int cycles = num;
+        while (this.quantity > 0 && cycles > 0) {
+            this.quantity -= 1;
+            cycles--;
+        }
+        // check if quantity is 1 or 0, call corresponding alerts
     }
 
     private void checkValidQuantity(int num) throws IllegalArgumentException {

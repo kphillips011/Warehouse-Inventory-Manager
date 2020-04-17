@@ -38,11 +38,11 @@ public class Inventory {
 
     // decrement item quantity, unless quantity is already at 0
     // ID passed as parameter
-    public boolean removeItem(int ID)
+    public boolean removeItem(int ID, int quantity)
     {
         if (inventory.get(ID).getQuantity() > 0)
         {
-            inventory.get(ID).decQuantity(1);
+            inventory.get(ID).decQuantity(quantity);
             return true;
         }
         else
