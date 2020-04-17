@@ -16,10 +16,10 @@ public class Inventory {
     // ID passed as parameter
     // the boolean confirms whether the ID is present or not,
     // and therefore if quantity was incremented or not
-    public boolean addItem(int ID)
+    public boolean addItem(int ID, int quantity)
     {
         if (inventory.containsKey(ID)) {
-            inventory.get(ID).incQuantity(1);
+            inventory.get(ID).incQuantity(quantity);
             return true;
         }
         else
@@ -70,6 +70,8 @@ public class Inventory {
     {
         return new TreeMap<Integer, Product>(inventory);
     }
+
+    // add descending version with Comparator
 
     // returns the Inventory sorted by item quantity, in ascending order
     public void sortByQuantity()

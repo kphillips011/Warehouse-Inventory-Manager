@@ -39,7 +39,7 @@ public class InventoryTest {
 
     @Test
     public void testAddItem() {
-        assertTrue(SUT.addItem(1));
+        assertTrue(SUT.addItem(1,1));
         assertEquals(2,SUT.inventory.get(1).getQuantity());
     }
 
