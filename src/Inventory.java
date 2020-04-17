@@ -7,9 +7,9 @@ public class Inventory {
     Map<Integer,Product> inventory;
 
     // default constructor, creates new Inventory
-    public Inventory()
+    public Inventory(final Map<Integer,Product> i)
     {
-        inventory = new HashMap<Integer,Product>();
+        this.inventory = i;
     }
 
     // increments quantity of item with specified ID;

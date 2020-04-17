@@ -2,14 +2,17 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryTest {
 
-    Inventory SUT = new Inventory();
+    Inventory SUT;
 
     @BeforeEach
     public void setUp() {
+        SUT = new Inventory(new HashMap<Integer,Product>());
         SUT.addProduct("prod 1",1.11,1);
         SUT.addProduct("prod 2",2.22,2);
         SUT.addProduct("prod 3",3.33,3);
@@ -18,6 +21,12 @@ public class InventoryTest {
     @AfterEach
     public void tearDown() {
         SUT = null;
+    }
+
+    @Test
+    public void testNull()
+    {
+        //TODO
     }
 
     @Test
@@ -51,7 +60,7 @@ public class InventoryTest {
 
     @Test
     public void testRemoveItem() {
-        assertTrue(SUT.removeItem(3));
+        assertTrue(SUT.removeItem(3,1));
         assertEquals(2,SUT.inventory.get(3).getQuantity());
     }
 
