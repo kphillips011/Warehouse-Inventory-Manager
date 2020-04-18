@@ -1,8 +1,6 @@
 // imports
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 // the main program reads a file stream of input 'items' and adds them to our inventory, output a file

@@ -1,7 +1,7 @@
+import java.security.Key;
 import java.util.*;
 
-// data structures to store inventory, add/remove methods, sort/search?
-// possible Comparable implementation(s)?
+// TODO: possible Comparable implementation(s)?
 public class Inventory {
 
     Map<Integer,Product> inventory;
@@ -12,14 +12,20 @@ public class Inventory {
         this.inventory = i;
     }
 
+    // returns the map representation of inventory
+    public Map<Integer,Product> getMap()
+    {
+        return this.inventory;
+    }
+
     // increments quantity of item with specified ID;
     // ID passed as parameter
     // the boolean confirms whether the ID is present or not,
-    // and therefore if quantity was incremented or not
-    public boolean addItem(int ID, int quantity)
+    // and if the increment passed is valid
+    public boolean addItem(final int ID, final int inc)
     {
-        if (inventory.containsKey(ID)) {
-            inventory.get(ID).incQuantity(quantity);
+        if (inventory.containsKey(ID) && inc > 0) {
+            inventory.get(ID).incQuantity(inc);
             return true;
         }
         else
@@ -30,19 +36,21 @@ public class Inventory {
 
     // adds a new product to Inventory
     // name, price, and quantity of the item passed as parameter
-    public void addProduct(String name, double price, int quantity)
+    public void addProduct(final String name, final double price, final int quantity)
     {
-        int ID = inventory.size() + 1;
+        final int ID = inventory.size() + 1;
         inventory.put(ID, new Product(ID,name,price,quantity));
     }
 
     // decrement item quantity, unless quantity is already at 0
     // ID passed as parameter
-    public boolean removeItem(int ID, int quantity)
+    // boolean confirms whether ID is present or not
+    // and if the decrement passed is valid
+    public boolean removeItem(final int ID, final int dec)
     {
-        if (inventory.get(ID).getQuantity() > 0)
+        if (inventory.get(ID).getQuantity() > 0 && dec > 0)
         {
-            inventory.get(ID).decQuantity(quantity);
+            inventory.get(ID).decQuantity(dec);
             return true;
         }
         else
@@ -52,7 +60,7 @@ public class Inventory {
     }
 
     // removes the product and its associated ID from the Inventory
-    public boolean removeProduct(int ID)
+    public boolean removeProduct(final int ID)
     {
         if (inventory.containsKey(ID))
         {
@@ -88,41 +96,90 @@ public class Inventory {
     // TODO more sort methods
 
     // computes and returns the total value of the Inventory's items, taking quantity into account
-    public int totalValue()
+    public double totalValue()
     {
         // TODO
-        return -1;
+        double totalValue = 0;
+        for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
+        {
+            Product product = entry.getValue();
+            totalValue += (product.getPrice() * product.getQuantity());
+        }
+        return totalValue;
     }
 
     // computes and returns the average price of the Inventory's items, taking quantity into account
-    public int averagePrice()
+    public double averagePrice()
     {
         // TODO
-        return -1;
+        int totalQuantity = 0;
+        for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
+        {
+            Product product = entry.getValue();
+            totalQuantity += product.getQuantity();
+        }
+        double average = this.totalValue() / totalQuantity;
+        return average;
     }
 
-    // returns the item in the Inventory with the lowest price
-    public void findLowestPricedItem()
+    // returns the item ID in the Inventory with the lowest price
+    public int findLowestPricedItem()
     {
-        // TODO
+        int lowestID = getMap().entrySet().iterator().next().getValue().getNumber();
+        for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
+        {
+            double currPrice = entry.getValue().getPrice();
+            if (currPrice < getMap().get(lowestID).getPrice())
+            {
+                lowestID = entry.getValue().getNumber();
+            }
+        }
+        return lowestID;
     }
 
-    // returns the item in the Inventory with the highest price
-    public void findHighestPricedItem()
+    // returns the item ID in the Inventory with the highest price
+    public int findHighestPricedItem()
     {
-        // TODO
+        int highestID = getMap().entrySet().iterator().next().getValue().getNumber();
+        for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
+        {
+            double currPrice = entry.getValue().getPrice();
+            if (currPrice > getMap().get(highestID).getPrice())
+            {
+                highestID = entry.getValue().getNumber();
+            }
+        }
+        return highestID;
     }
 
-    // returns the item in the Inventory with the highest quantity
-    public void findHighestQuantityItem()
+    // returns the item ID in the Inventory with the highest quantity
+    public int findHighestQuantityItem()
     {
-        // TODO
+        int highestID = getMap().entrySet().iterator().next().getValue().getNumber();
+        for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
+        {
+            int currQuantity = entry.getValue().getQuantity();
+            if (currQuantity > getMap().get(highestID).getQuantity())
+            {
+                highestID = entry.getValue().getNumber();
+            }
+        }
+        return highestID;
     }
 
-    // returns the item in the Inventory with the lowest quantity
-    public void findLowestQuantityItem()
+    // returns the item ID in the Inventory with the lowest quantity
+    public int findLowestQuantityItem()
     {
-        // TODO
+        int lowestID = getMap().entrySet().iterator().next().getValue().getNumber();
+        for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
+        {
+            int currQuantity = entry.getValue().getQuantity();
+            if (currQuantity < getMap().get(lowestID).getQuantity())
+            {
+                lowestID = entry.getValue().getNumber();
+            }
+        }
+        return lowestID;
     }
 
     // returns String representation of the Inventory
@@ -132,7 +189,7 @@ public class Inventory {
     }
 
     // prints out specified ID's product info to the console
-    public void getProductInfo(int ID)
+    public void getProductInfo(final int ID)
     {
         if (inventory.containsKey(ID)) {
             System.out.println(ID + ": " + inventory.get(ID).getName() + ", " +
