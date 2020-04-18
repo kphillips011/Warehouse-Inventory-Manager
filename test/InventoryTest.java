@@ -83,6 +83,11 @@ public class InventoryTest {
     }
 
     @Test
+    public void testRemoveProductFalse2() {
+        assertFalse(SUT.removeProduct(-1));
+    }
+
+    @Test
     public void testRemoveItem() {
         assertTrue(SUT.removeItem(3,1));
         assertEquals(2,SUT.getMap().get(3).getQuantity());
@@ -132,6 +137,19 @@ public class InventoryTest {
     {
         SUT.addItem(3,1);
         assertEquals(18.87, SUT.totalValue(), DELTA);
+    }
+
+    @Test
+    public void testTotalQuantity()
+    {
+        assertEquals(6, SUT.totalQuantity());
+    }
+
+    @Test
+    public void testTotalQuantity2()
+    {
+        SUT.addItem(1,4);
+        assertEquals(10, SUT.totalQuantity());
     }
 
     @Test

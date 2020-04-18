@@ -1,4 +1,3 @@
-import java.security.Key;
 import java.util.*;
 
 // TODO: possible Comparable implementation(s)?
@@ -98,7 +97,6 @@ public class Inventory {
     // computes and returns the total value of the Inventory's items, taking quantity into account
     public double totalValue()
     {
-        // TODO
         double totalValue = 0;
         for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
         {
@@ -108,17 +106,22 @@ public class Inventory {
         return totalValue;
     }
 
-    // computes and returns the average price of the Inventory's items, taking quantity into account
-    public double averagePrice()
+    // computes and returns the total quantity of items in the Inventory
+    public int totalQuantity()
     {
-        // TODO
         int totalQuantity = 0;
         for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
         {
             Product product = entry.getValue();
             totalQuantity += product.getQuantity();
         }
-        double average = this.totalValue() / totalQuantity;
+        return totalQuantity;
+    }
+
+    // computes and returns the average price of the Inventory's items, taking quantity into account
+    public double averagePrice()
+    {
+        double average = this.totalValue() / this.totalQuantity();
         return average;
     }
 
