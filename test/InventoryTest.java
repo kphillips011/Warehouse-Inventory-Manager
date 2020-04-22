@@ -2,7 +2,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -111,20 +114,42 @@ public class InventoryTest {
         assertEquals(3, SUT.getMap().get(3).getQuantity());
     }
 
-    @Test
-    public void testSortByID() {
-        // TODO: do other test sorting methods before this one
+    /*@Test
+    public void testSortAscendingID() {
+        Map<Integer, Product> ascend = new TreeMap<>(SUT.getMap());
     }
 
     @Test
-    public void testSortByQuantity() {
+    public void testSortDescendingID() {
+        Map<Integer, Product> reverse = new TreeMap<Integer, Product>(Collections.reverseOrder());
+        reverse.putAll(SUT.getMap());
+        for (Map.Entry<Integer,Product> entry : SUT.getMap().entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue().getNumber());
+        }
+    }
+
+    @Test
+    public void testSortAscendingQuantity() {
         // TODO
     }
 
     @Test
-    public void testSortByPrice() {
+    public void testSortDescendingQuantity() {
         // TODO
     }
+
+    @Test
+    public void testSortAscendingPrice() {
+        // TODO
+    }
+
+    @Test
+    public void testSortDescendingPrice() {
+        SUT.sortDescendingPrice();
+        for (Map.Entry<Integer,Product> entry : SUT.getMap().entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue().getPrice());
+        }
+    }*/
 
     @Test
     public void testTotalValue()

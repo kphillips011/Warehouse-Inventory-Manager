@@ -3,7 +3,7 @@ import java.util.*;
 // TODO: possible Comparable implementation(s)?
 public class Inventory {
 
-    Map<Integer,Product> inventory;
+    private final Map<Integer,Product> inventory;
 
     // default constructor, creates new Inventory
     public Inventory(final Map<Integer,Product> i)
@@ -73,12 +73,20 @@ public class Inventory {
     }
 
     // returns the Inventory sorted by item ID, in ascending order
-    public TreeMap<Integer,Product> sortByID()
+    /*public void sortAscendingID(Map<Integer,Product> i)
     {
-        return new TreeMap<Integer, Product>(inventory);
+        Map<Integer,Product> ascend = new TreeMap<>(inventory);
+        inventory.clear();
+        inventory.putAll(ascend);
     }
 
-    // add descending version with Comparator
+    // returns the Inventory sorted by item ID, in descending order
+    public void sortDescendingID(Map<Integer,Product> i) {
+        Map<Integer, Product> reverse = new TreeMap<Integer, Product>(Collections.reverseOrder());
+        reverse.putAll(inventory);
+        inventory.clear();
+        inventory.putAll(reverse);
+    }
 
     // returns the Inventory sorted by item quantity, in ascending order
     public void sortByQuantity()
@@ -87,10 +95,24 @@ public class Inventory {
     }
 
     // returns the Inventory sorted by item price, in ascending order
-    public void sortByPrice()
+    public void sortAscendingPrice()
     {
         // TODO
     }
+
+    public void sortDescendingPrice()
+    {
+        List<Map.Entry<Integer, Product>> productPrice = new ArrayList<Map.Entry<Integer, Product>>(inventory.entrySet());
+
+        for (Map.Entry<Integer,Product> entry : productPrice) {
+            inventory.put(entry.getKey(), entry.getValue());
+        }
+
+        //implement new Comparator to sort by descending
+        productPrice.sort(new DescendingPrice());
+        //Collections.sort(productPrice, new DescendingPrice());
+        //inventory.clear();
+    }*/
 
     // TODO more sort methods
 
@@ -203,5 +225,4 @@ public class Inventory {
             System.out.println("Sorry, ID not found");
         }
     }
-
 }

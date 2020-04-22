@@ -98,16 +98,17 @@ public class Product {
     }
 
     // sets Product's associated quantity of items
-    public void setQuantity(final int q)
+    public void setQuantity(final int q) throws IllegalArgumentException
     {
-        checkValidQuantity(q);
+        if (q < 0) {
+            throw new IllegalArgumentException("Number must be 0 or greater");
+        }
         this.quantity = q;
     }
 
     // increments quantity by specified number
     public void incQuantity(final int num)
     {
-        //checkValidQuantity(num); // commented out because I did a check in addItem method
         this.quantity += num;
     }
 
@@ -116,7 +117,6 @@ public class Product {
     // below 0
     public void decQuantity(final int num)
     {
-        //checkValidQuantity(num); // commented out because I did a check in removeItem method
         int count = num;
         while (this.quantity > 0 && count > 0) {
             this.quantity -= 1;
@@ -125,9 +125,4 @@ public class Product {
         // TODO check if quantity is 1 or 0, call corresponding alerts
     }
 
-    private void checkValidQuantity(final int num) throws IllegalArgumentException {
-        if (num < 0) {
-            throw new IllegalArgumentException("Number must be 0 or greater");
-        }
-    }
 }
