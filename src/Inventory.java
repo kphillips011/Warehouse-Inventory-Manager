@@ -3,7 +3,7 @@ import java.util.*;
 // TODO: possible Comparable implementation(s)?
 public class Inventory {
 
-    private final Map<Integer,Product> inventory;
+    private Map<Integer,Product> inventory;
 
     // default constructor, creates new Inventory
     public Inventory(final Map<Integer,Product> i)
@@ -35,10 +35,17 @@ public class Inventory {
 
     // adds a new product to Inventory
     // name, price, and quantity of the item passed as parameter
+
     public void addProduct(final String name, final double price, final int quantity)
     {
         final int ID = inventory.size() + 1;
         inventory.put(ID, new Product(ID,name,price,quantity));
+    }
+
+    // adds a new product to Inventory
+    // Product passed as parameter
+    public void addProduct(final Product p) {
+        inventory.put(p.getNumber(), p);
     }
 
     // decrement item quantity, unless quantity is already at 0
@@ -73,23 +80,22 @@ public class Inventory {
     }
 
     // returns the Inventory sorted by item ID, in ascending order
-    /*public void sortAscendingID(Map<Integer,Product> i)
+    public void sortAscendingID()
     {
-        Map<Integer,Product> ascend = new TreeMap<>(inventory);
-        inventory.clear();
+        Map<Integer,Product> ascend = inventory;
+        inventory = new TreeMap<Integer,Product>();
         inventory.putAll(ascend);
     }
 
     // returns the Inventory sorted by item ID, in descending order
-    public void sortDescendingID(Map<Integer,Product> i) {
-        Map<Integer, Product> reverse = new TreeMap<Integer, Product>(Collections.reverseOrder());
-        reverse.putAll(inventory);
-        inventory.clear();
+    public void sortDescendingID() {
+        Map<Integer,Product> reverse = inventory;
+        inventory = new TreeMap<Integer,Product>(Collections.reverseOrder());
         inventory.putAll(reverse);
     }
 
     // returns the Inventory sorted by item quantity, in ascending order
-    public void sortByQuantity()
+    /*public void sortByQuantity()
     {
         // TODO
     }
@@ -150,6 +156,7 @@ public class Inventory {
     // returns the item ID in the Inventory with the lowest price
     public int findLowestPricedItem()
     {
+
         int lowestID = getMap().entrySet().iterator().next().getValue().getNumber();
         for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
         {

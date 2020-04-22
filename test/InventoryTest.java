@@ -19,7 +19,9 @@ public class InventoryTest {
         SUT = new Inventory(new HashMap<Integer,Product>());
         SUT.addProduct("prod 1",1.11,1);
         SUT.addProduct("prod 2",2.22,2);
+        //SUT.addProduct(new Product(20, "unnamed", 20.0, 200)); used for testing that sorting by ID works
         SUT.addProduct("prod 3",3.33,3);
+        //SUT.addProduct(new Product(10, "named", 10.0, 100)); used for testing that sorting by ID works
     }
 
     @AfterEach
@@ -114,21 +116,19 @@ public class InventoryTest {
         assertEquals(3, SUT.getMap().get(3).getQuantity());
     }
 
-    /*@Test
+    @Test
     public void testSortAscendingID() {
-        Map<Integer, Product> ascend = new TreeMap<>(SUT.getMap());
+        SUT.sortAscendingID();
+        System.out.println(SUT.toString());
     }
 
     @Test
     public void testSortDescendingID() {
-        Map<Integer, Product> reverse = new TreeMap<Integer, Product>(Collections.reverseOrder());
-        reverse.putAll(SUT.getMap());
-        for (Map.Entry<Integer,Product> entry : SUT.getMap().entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue().getNumber());
-        }
+        SUT.sortDescendingID();
+        System.out.println(SUT.toString());
     }
 
-    @Test
+    /*@Test
     public void testSortAscendingQuantity() {
         // TODO
     }
