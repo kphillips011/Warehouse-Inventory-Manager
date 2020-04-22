@@ -121,8 +121,15 @@ public class Product {
         while (this.quantity > 0 && count > 0) {
             this.quantity -= 1;
             count--;
+            if (this.quantity == 0)
+            {
+                System.out.println("Quantity is 0. Please restock this product.");
+            }
+            if (this.quantity < 3 && this.quantity > 0)
+            {
+                System.out.println("Low quantity alert. Please restock this product.");
+            }
         }
-        // TODO check if quantity is 1 or 0, call corresponding alerts
     }
 
 }
