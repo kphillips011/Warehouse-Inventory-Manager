@@ -30,12 +30,6 @@ public class InventoryTest {
     }
 
     @Test
-    public void testNull()
-    {
-        //TODO
-    }
-
-    @Test
     public void testEmpty() {
         SUT.getMap().clear();
         assertTrue(SUT.getMap().isEmpty());

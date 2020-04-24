@@ -214,10 +214,19 @@ public class Inventory {
         return lowestID;
     }
 
+    // TODO search by name
+
     // returns String representation of the Inventory
     public String toString()
     {
         return (inventory.entrySet() + "");
+    }
+
+    // TODO toString() with ID parameter, add heading
+    public String toString(final int ID)
+    {
+        Product p = inventory.get(ID);
+        return (p.getNumber() + " " + p.getName() + " " + p.getNumber() + " " + p.getQuantity());
     }
 
     // prints out specified ID's product info to the console
