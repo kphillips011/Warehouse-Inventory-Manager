@@ -222,11 +222,11 @@ public class Inventory {
         return (inventory.entrySet() + "");
     }
 
-    // TODO toString() with ID parameter, add heading
+    // returns String representation of Product information, as used in the log
     public String toString(final int ID)
     {
         Product p = inventory.get(ID);
-        return (p.getNumber() + " " + p.getName() + " " + p.getNumber() + " " + p.getQuantity());
+        return (p.getNumber() + " " + p.getName() + " " + p.getPrice() + " " + p.getQuantity());
     }
 
     // prints out specified ID's product info to the console
