@@ -225,4 +225,23 @@ public class InventoryTest {
         SUT.addItem(1,30);
         assertEquals(1,SUT.findHighestQuantityItem());
     }
+
+    @Test
+    public void testFindProduct()
+    {
+        assertEquals(2, SUT.findProduct("prod 2"));
+    }
+
+    @Test
+    public void testFindProduct2()
+    {
+        assertEquals(2, SUT.findProduct("Prod 2"));
+    }
+
+    @Test
+    public void testFindProduct3()
+    {
+        assertEquals(-1, SUT.findProduct("prod2"));
+    }
+
 }

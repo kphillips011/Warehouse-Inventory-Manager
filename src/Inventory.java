@@ -1,6 +1,5 @@
 import java.util.*;
 
-// TODO: possible Comparable implementation(s)?
 public class Inventory {
 
     private Map<Integer,Product> inventory;
@@ -35,7 +34,6 @@ public class Inventory {
 
     // adds a new product to Inventory
     // name, price, and quantity of the item passed as parameter
-
     public void addProduct(final String name, final double price, final int quantity)
     {
         final int ID = inventory.size() + 1;
@@ -82,14 +80,14 @@ public class Inventory {
     // returns the Inventory sorted by item ID, in ascending order
     public void sortAscendingID()
     {
-        Map<Integer,Product> ascend = inventory;
+        final Map<Integer,Product> ascend = inventory;
         inventory = new TreeMap<Integer,Product>();
         inventory.putAll(ascend);
     }
 
     // returns the Inventory sorted by item ID, in descending order
     public void sortDescendingID() {
-        Map<Integer,Product> reverse = inventory;
+        final Map<Integer,Product> reverse = inventory;
         inventory = new TreeMap<Integer,Product>(Collections.reverseOrder());
         inventory.putAll(reverse);
     }
@@ -149,7 +147,7 @@ public class Inventory {
     // computes and returns the average price of the Inventory's items, taking quantity into account
     public double averagePrice()
     {
-        double average = this.totalValue() / this.totalQuantity();
+        final double average = this.totalValue() / this.totalQuantity();
         return average;
     }
 
@@ -214,7 +212,19 @@ public class Inventory {
         return lowestID;
     }
 
-    // TODO search by name
+    // given a String name, returns the ID of the first item with that name
+    public int findProduct(final String name)
+    {
+        for (Map.Entry<Integer,Product> entry : this.getMap().entrySet())
+        {
+            if (entry.getValue().getName().equalsIgnoreCase(name))
+            {
+                return entry.getKey();
+            }
+        }
+        System.out.println("Could not find an item with that name");
+        return -1;
+    }
 
     // returns String representation of the Inventory
     public String toString()
