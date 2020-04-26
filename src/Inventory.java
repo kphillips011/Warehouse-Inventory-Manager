@@ -19,7 +19,7 @@ public class Inventory {
   // the boolean confirms whether the ID is present or not,
   // and if the increment passed is valid
   public boolean addItem(final int ID, final int inc) {
-    // TODO exception throwing if inc <= 0
+    // TODO exception throwing and return false if inc <= 0
     if (inventory.containsKey(ID) && inc > 0) {
       inventory.get(ID).incQuantity(inc);
       return true;
@@ -38,10 +38,14 @@ public class Inventory {
 
   // adds a new product to Inventory
   // Product passed as parameter
-  public void addProduct(final Product p) {
-    if (inventory.containsKey(p.getNumber()))
+  public boolean addProduct(final Product p) {
+    if (inventory.containsKey(p.getNumber())) {
       System.out.println("ID already in use. Use another ID number.");
-    else inventory.put(p.getNumber(), p);
+      return false;
+    } else {
+      inventory.put(p.getNumber(), p);
+      return true;
+    }
   }
 
   // decrement item quantity, unless quantity is already at 0
@@ -49,7 +53,7 @@ public class Inventory {
   // boolean confirms whether ID is present or not
   // and if the decrement passed is valid
   public boolean removeItem(final int ID, final int dec) {
-    // TODO exception throwing if dec <= 0
+    // TODO exception throwing and return false if dec <= 0
     if (inventory.get(ID).getQuantity() > 0 && dec > 0) {
       inventory.get(ID).decQuantity(dec);
       return true;
@@ -64,6 +68,7 @@ public class Inventory {
       inventory.remove(ID);
       return true;
     } else {
+      System.out.println("Product not found so it could not be removed");
       return false;
     }
   }

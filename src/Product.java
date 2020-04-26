@@ -8,6 +8,7 @@ public class Product {
   // constructs new Product object using only a number;
   // used when product info is unconfirmed
   public Product(final int n) {
+    // TODO exception throwing if n < 0
     // calls default constructor
     // validity check done by default constructor
     this(n, "unnamed", 0.00, 0);
