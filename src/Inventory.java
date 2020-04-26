@@ -239,4 +239,10 @@ public class Inventory {
       System.out.println("Sorry, ID not found");
     }
   }
+
+  public void printResult() {
+    for (Map.Entry<Integer, Product> i : inventory.entrySet()) {
+      System.out.println(i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getQuantity() + " " + i.getValue().getQuantity());
+    }
+  }
 }
