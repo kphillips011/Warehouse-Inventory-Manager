@@ -30,6 +30,8 @@ public class Main {
 
     }
 
+    //Reads input file and adds elements in file to inventory
+    //Checks if ID of product is already in system, if so just adds quantity
     static void readFile(String fileName)
     {
         final File file = new File(fileName);
@@ -54,6 +56,9 @@ public class Main {
         }
     }
 
+    //Creates a log file of all products in the inventory
+    //Log file name is always different so it does not overwrite old log file
+    //Writes to the log file using the fileFormat method as the String
     static void writeFile()
     {
         final String fileName = new SimpleDateFormat("'log_'MM-dd-yyyy_hh-mm-ss'.md'").format(new Date());
@@ -79,6 +84,8 @@ public class Main {
 
     }
 
+    //Format for the writeFile method to use
+    //Structured in markdown syntax to create a table of all the products in the inventory
     public static String fileFormat()
     {
         final StringBuilder format = new StringBuilder();
