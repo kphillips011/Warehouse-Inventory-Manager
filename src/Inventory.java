@@ -127,6 +127,24 @@ public class Inventory {
     }
   }
 
+  public void sortAscendingName() {
+    List<Map.Entry<Integer, Product>> ascendName = new ArrayList<>(inventory.entrySet());
+    ascendName.sort(new AscendingName());
+    inventory = new LinkedHashMap<Integer, Product>();
+    for (Map.Entry<Integer, Product> i : ascendName) {
+      inventory.put(i.getKey(), i.getValue());
+    }
+  }
+
+  public void sortDescendingName() {
+    List<Map.Entry<Integer, Product>> descendName = new ArrayList<>(inventory.entrySet());
+    descendName.sort(Collections.reverseOrder(new AscendingName()));
+    inventory = new LinkedHashMap<Integer, Product>();
+    for (Map.Entry<Integer, Product> i : descendName) {
+      inventory.put(i.getKey(), i.getValue());
+    }
+  }
+
   // computes and returns the total value of the Inventory's items, taking quantity into account
   public double totalValue() {
     double totalValue = 0;
