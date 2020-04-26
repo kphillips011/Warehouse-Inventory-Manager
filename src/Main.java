@@ -42,6 +42,9 @@ public class Main {
       while (fileReader.hasNext()) {
         int id = fileReader.nextInt();
         String name = fileReader.next();
+        //while (fileReader.hasNext()) {
+        //  name += " " + fileReader.next();
+        //}
         double price = fileReader.nextDouble();
         int quantity = fileReader.nextInt();
         if (inv.getMap().containsKey(id)) {
