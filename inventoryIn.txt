@@ -1,3 +1,6 @@
 1 iPhoneSE 399.99 10
 2 AcerAspire 605.89 7
 3 SennheiserHD 119.95 25
+9 Logitechc920 48.86 13
+6 DuckyOne2Mini 99.99 3
+5 CorsairM55 29.99 5
