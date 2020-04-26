@@ -120,8 +120,6 @@ public class Inventory {
     }
   }
 
-  // TODO more sort methods
-
   // computes and returns the total value of the Inventory's items, taking quantity into account
   public double totalValue() {
     double totalValue = 0;
