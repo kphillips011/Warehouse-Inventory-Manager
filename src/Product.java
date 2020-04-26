@@ -119,6 +119,7 @@ public class Product {
     }
   }
 
+  // outputs the format for the log
   public String toString() {
     return (this.getName() + " | " + this.getPrice() + " | " + this.getQuantity() + " |");
   }

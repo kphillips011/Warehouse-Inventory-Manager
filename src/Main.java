@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -11,7 +12,7 @@ import java.util.*;
 public class Main {
 
   // TODO output log - two different logs that print inventory, maybe comparing the two for a
-  // changelog?
+  //  changelog?
   static Inventory inv = new Inventory(new HashMap<Integer, Product>());
 
   public static void main(final String[] args) {
@@ -56,16 +57,14 @@ public class Main {
     }
   }
 
-  // Creates a log file of all products in the inventory
+  // Creates a log file of all products in the inventory to the program directory
   // Log file name is always different so it does not overwrite old log file
   // Writes to the log file using the fileFormat method as the String
   static void writeFile() {
-    final String fileName =
-        new SimpleDateFormat("'log_'MM-dd-yyyy_hh-mm-ss'.md'").format(new Date());
+    final String date =
+        new SimpleDateFormat("MM-dd-yyyy_hh-mm-ss").format(new Date());
+    final String fileName = ("log_" + date + ".md");
     final File newFile = new File(fileName);
-    // Not necessary unless we need to specify where the file is being created
-    // newFile.getParentFile().mkdir(); Use for testing
-
     try {
       System.out.println("Log file created successfully.");
       newFile.createNewFile();
@@ -75,6 +74,7 @@ public class Main {
     }
     try {
       final FileWriter writer = new FileWriter(fileName);
+      writer.write("#Warehouse Inventory Log: " + date + "  " + System.lineSeparator());
       writer.write(fileFormat());
       writer.close();
     } catch (IOException e) {
@@ -85,23 +85,25 @@ public class Main {
 
   // Format for the writeFile method to use
   // Structured in markdown syntax to create a table of all the products in the inventory
+  // The lineSeparator() is unnecessary but used for ease of reading before the format to markdown
   public static String fileFormat() {
     final StringBuilder format = new StringBuilder();
-    format.append("#Warehouse Inventory Log" + "  " + System.lineSeparator());
     format.append("| ID | Name | Price | Quantity |" + "  " + System.lineSeparator());
     format.append(
         "| :------------: | :------------: | :-------------: | :------------: |"
             + "  "
             + System.lineSeparator());
-    for (Map.Entry<Integer, Product> entry : inv.getMap().entrySet()) {
+    for (Map.Entry<Integer, Product> i : inv.getMap().entrySet()) {
       format.append(
-          "| "
-              + entry.getKey()
-              + " | "
-              + entry.getValue().toString()
-              + "  "
-              + System.lineSeparator());
+          "| " + i.getKey() + " | " + i.getValue().toString() + "  " + System.lineSeparator());
     }
+    final DecimalFormat df = new DecimalFormat(("###.##"));
+    format.append(
+        "| **Total** | **...** | **"
+            + df.format(inv.totalValue())
+            + "** | **"
+            + inv.totalQuantity()
+            + "** |");
     return format.toString();
   }
 }
