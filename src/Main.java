@@ -30,6 +30,8 @@ public class Main {
     inv.getProductInfo(2);
 
     writeFile();
+    inv.sortDescendingName();
+    writeFile();
   }
 
   // Reads input file and adds elements in file to inventory

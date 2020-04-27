@@ -112,8 +112,9 @@ public class InventoryTest {
     SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
     SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
     SUT.sortAscendingID();
-    SUT.printResult();
-    tearDown();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
+    }
   }
 
   @Test
@@ -123,8 +124,9 @@ public class InventoryTest {
     SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
     SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
     SUT.sortDescendingID();
-    SUT.printResult();
-    tearDown();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
+    }
   }
 
   @Test
@@ -134,8 +136,9 @@ public class InventoryTest {
     SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
     SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
     SUT.sortAscendingQuantity();
-    SUT.printResult();
-    tearDown();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getValue().getQuantity() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice());
+    }
   }
 
   @Test
@@ -145,8 +148,9 @@ public class InventoryTest {
     SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
     SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
     SUT.sortDescendingQuantity();
-    SUT.printResult();
-    tearDown();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getValue().getQuantity() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice());
+    }
   }
 
   @Test
@@ -156,8 +160,9 @@ public class InventoryTest {
     SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
     SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
     SUT.sortAscendingPrice();
-    SUT.printResult();
-    tearDown();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getValue().getPrice() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getQuantity());
+    }
   }
 
   @Test
@@ -167,9 +172,40 @@ public class InventoryTest {
     SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
     SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
     SUT.sortDescendingPrice();
-    SUT.printResult();
-    tearDown();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getValue().getPrice() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getQuantity());
+    }
   }
+
+  @Test
+  public void testSortAscendingName() {
+    setUp();
+    SUT.addProduct(new Product(20, "prod b", 15.0, 100));
+    SUT.addProduct(new Product(10, "prod a", 20.0, 200));
+    SUT.addProduct(new Product(15, "prod c", 10.0, 150));
+    SUT.addProduct(new Product(30, "prod 4", 10.0, 150));
+    SUT.addProduct(new Product(5, "extra product", 10.0, 150));
+    SUT.sortAscendingName();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getValue().getName() + " " + i.getKey() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
+    }
+  }
+
+  @Test
+  public void testSortDescendingName() {
+    setUp();
+    SUT.addProduct(new Product(20, "prod b", 15.0, 100));
+    SUT.addProduct(new Product(10, "prod a", 20.0, 200));
+    SUT.addProduct(new Product(15, "prod c", 10.0, 150));
+    SUT.addProduct(new Product(30, "prod 4", 10.0, 150));
+    SUT.addProduct(new Product(5, "extra product", 10.0, 150));
+    SUT.sortDescendingName();
+    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
+      System.out.println(i.getValue().getName() + " " + i.getKey() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
+    }
+  }
+
+
 
   @Test
   public void testTotalValue() {
