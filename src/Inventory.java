@@ -236,12 +236,6 @@ public class Inventory {
     return (inventory.entrySet() + "");
   }
 
-  // returns String representation of Product information, as used in the log
-  public String toString(final int ID) {
-    Product p = inventory.get(ID);
-    return (p.getNumber() + " " + p.getName() + " " + p.getPrice() + " " + p.getQuantity());
-  }
-
   // prints out specified ID's product info to the console
   public void getProductInfo(final int ID) {
     if (inventory.containsKey(ID)) {

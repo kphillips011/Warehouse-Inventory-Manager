@@ -6,31 +6,19 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 // the main program reads a file stream of input 'items' and adds them to our inventory, output a
 // file
 public class Main {
 
-  // TODO output log - two different logs that print inventory, maybe comparing the two for a
-  //  changelog?
-  static Inventory inv = new Inventory(new HashMap<Integer, Product>());
+  static Inventory inv = new Inventory(new TreeMap<Integer, Product>());
 
   public static void main(final String[] args) {
-    inv.addProduct(new Product(1, "IPhoneSE", 399.99, 1));
     String name = "inventoryIn.txt";
-    inv.getProductInfo(1);
-    inv.getProductInfo(2); // Should be non-existent
-    inv.getProductInfo(3); // Should be non-existent
     readFile(name);
-    inv.getProductInfo(
-        1); // Test to see if IPhoneSE just adds quantity of readFile to existing product
-    inv.getProductInfo(2); // Test to see if Non-existing product gets added in readFile
-    inv.getProductInfo(3);
-    inv.addItem(2, 3); // Test for adding to existing readFile product
-    inv.getProductInfo(2);
-
     writeFile();
-    inv.sortDescendingName();
+    inv.sortAscendingName();
     writeFile();
   }
 
@@ -90,6 +78,12 @@ public class Main {
       writer.close();
     } catch (IOException e) {
       System.out.println("An error occurred while writing to file.");
+      e.printStackTrace();
+    }
+    try {
+      TimeUnit.SECONDS.sleep(1);
+    } catch (InterruptedException e) {
+      System.out.println("Sleep did not work.");
       e.printStackTrace();
     }
   }
