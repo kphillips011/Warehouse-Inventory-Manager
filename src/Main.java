@@ -18,23 +18,23 @@ public class Main {
     String name = "inventoryIn.txt";
     readFile(name);
     // automatically sorted by ascending ID, since it is a TreeMap
-//    writeFile();
-//    inv.sortDescendingID();
-//    writeFile();
-//    inv.sortAscendingName();
-//    writeFile();
-//    inv.sortDescendingName();
-//    writeFile();
-//    inv.sortAscendingPrice();
-//    writeFile();
-//    inv.sortDescendingPrice();
-//    writeFile();
-//    inv.sortAscendingQuantity();
-//    writeFile();
-//    inv.sortDescendingQuantity();
-//    writeFile();
+    writeFile();
+    inv.sortDescendingID();
+    writeFile();
+    inv.sortAscendingName();
+    writeFile();
+    inv.sortDescendingName();
+    writeFile();
+    inv.sortAscendingPrice();
+    writeFile();
+    inv.sortDescendingPrice();
+    writeFile();
+    inv.sortAscendingQuantity();
+    writeFile();
+    inv.sortDescendingQuantity();
+    writeFile();
 
-    System.out.printf("average price: $%.2f %n", inv.averagePrice());
+    System.out.printf("average price of inventory: $%.2f %n", inv.averagePrice());
   }
 
   // Reads input file and adds elements in file to inventory
