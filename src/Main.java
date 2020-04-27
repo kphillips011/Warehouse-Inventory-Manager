@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-// The main program reads a file stream of input 'items', adds them to the inventory,
+// The main program reads a file stream of input 'items', adds them to the Inventory,
 // and outputs files. We also added an average price calculation for showcasing purposes.
 public class Main {
 
@@ -15,12 +15,31 @@ public class Main {
 
   public static void main(final String[] args) {
     final String name = "inventoryIn.txt";
-
     readFile(name);
-    // TODO print search method results for each search method
-    // TODO show adding/removing products, quantity, etc
+
+    // Print results of search methods
+    System.out.println("Highest priced item: "
+            + inv.getMap().get(inv.findHighestPricedItem()).getName());
+    System.out.println("Lowest priced item: "
+            + inv.getMap().get(inv.findLowestPricedItem()).getName());
+    System.out.println("Item with highest quantity: "
+            + inv.getMap().get(inv.findHighestQuantityItem()).getName());
+    System.out.println("Item with lowest quantity: "
+            + inv.getMap().get(inv.findLowestQuantityItem()).getName());
+    System.out.println();
+
     // Inventory is automatically sorted by ascending ID, since it is a TreeMap
     writeFile();
+
+    // Add 2 "Tesla Diamond Edition Roadster" to the Inventory
+    inv.addItem(200,2);
+    writeFile();
+
+    // Remove "Tesla Diamond Edition Roadster" Product from the Inventory
+    inv.removeProduct(200);
+    writeFile();
+
+    // Sorting examples
     inv.sortDescendingID();
     writeFile();
     inv.sortAscendingName();
@@ -35,9 +54,10 @@ public class Main {
     writeFile();
     inv.sortDescendingQuantity();
     writeFile();
+    System.out.println();
 
     // Print average price of inventory
-    System.out.printf("average price of inventory: $%.2f %n", inv.averagePrice());
+    System.out.printf("Average price of inventory: $%.2f %n", inv.averagePrice());
   }
 
   // Reads input file and adds elements in file to inventory
