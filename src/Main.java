@@ -70,9 +70,7 @@ public class Main {
   }
 
   // Creates a log file of all products in the inventory to the program directory
-  // Log file name is always different so it does not overwrite old log file (plus waits 1 second to
-  // verify no overwritten name)
-  // Writes to the log file using the fileFormat method as the String
+  // Writes to the file using fileFormat method
   static void writeFile() {
     final String date = new SimpleDateFormat("MM-dd-yyyy_hh-mm-ss-SS").format(new Date());
     final String fileName = ("log_" + date + ".md");
@@ -103,7 +101,6 @@ public class Main {
 
   // Format for the writeFile method to use
   // Structured in markdown syntax to create a table of all the products in the inventory
-  // The lineSeparator() is unnecessary but used for ease of reading before the format to markdown
   public static String fileFormat() {
     final StringBuilder format = new StringBuilder();
     format.append("| ID | Name | Price | Quantity |" + "  " + System.lineSeparator());

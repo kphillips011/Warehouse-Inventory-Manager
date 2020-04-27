@@ -4,6 +4,7 @@
 3 Sennheiser HD 119.95 25
 10 Amazon Echo Dot 59.99 15
 19 Fire TV Stick 39.99 40
+
 15 Windows 10H 64-Bit 159.99 100
 9 Logitech c920 48.86 13
 6 DuckyOne2Mini 99.99 3
