@@ -36,10 +36,10 @@ public class Product {
       throw new IllegalArgumentException("quantity cannot be less than 0");
     }
 
-    this.number = n;
-    this.name = name;
-    this.price = p;
-    this.quantity = q;
+    this.setNumber(n);
+    this.setName(name);
+    this.setPrice(p);
+    this.setQuantity(q);
   }
 
   // returns Product's associated ID number

@@ -120,7 +120,7 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingID();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(1, SUTList.get(0).getValue().getNumber());
     System.out.println(SUTList);
   }
@@ -131,7 +131,7 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingID();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(6, SUTList.get(0).getValue().getNumber());
     System.out.println(SUTList);
   }
@@ -142,7 +142,7 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingQuantity();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(1, SUTList.get(0).getValue().getNumber());
     assertEquals(5, SUTList.get(5).getValue().getNumber());
     System.out.println(SUTList);
@@ -154,7 +154,7 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingQuantity();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(5, SUTList.get(0).getValue().getNumber());
     assertEquals(1, SUTList.get(5).getValue().getNumber());
     System.out.println(SUTList);
@@ -166,7 +166,7 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingPrice();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(1, SUTList.get(0).getValue().getNumber());
     assertEquals(5, SUTList.get(5).getValue().getNumber());
     System.out.println(SUTList);
@@ -178,7 +178,7 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingPrice();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(5, SUTList.get(0).getValue().getNumber());
     assertEquals(1, SUTList.get(5).getValue().getNumber());
     System.out.println(SUTList);
@@ -190,7 +190,7 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingName();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(4, SUTList.get(0).getValue().getNumber());
     assertEquals(3, SUTList.get(5).getValue().getNumber());
     System.out.println(SUTList);
@@ -202,13 +202,11 @@ public class InventoryTest {
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
     SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingName();
-    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    final List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
     assertEquals(3, SUTList.get(0).getValue().getNumber());
     assertEquals(4, SUTList.get(5).getValue().getNumber());
     System.out.println(SUTList);
   }
-
-
 
   @Test
   public void testTotalValue() {

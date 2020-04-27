@@ -15,8 +15,11 @@ public class Main {
   static Inventory inv = new Inventory(new TreeMap<Integer, Product>());
 
   public static void main(final String[] args) {
-    String name = "inventoryIn.txt";
+    final String name = "inventoryIn.txt";
+
     readFile(name);
+    // TODO print search method results for each search method
+    // TODO show adding/removing products, quantity, etc
     // automatically sorted by ascending ID, since it is a TreeMap
     writeFile();
     inv.sortDescendingID();
@@ -34,6 +37,7 @@ public class Main {
     inv.sortDescendingQuantity();
     writeFile();
 
+    // print average price of inventory
     System.out.printf("average price of inventory: $%.2f %n", inv.averagePrice());
   }
 
@@ -45,7 +49,7 @@ public class Main {
       final Scanner fileReader = new Scanner(file);
 
       while (fileReader.hasNext()) {
-        int id = fileReader.nextInt();
+        final int id = fileReader.nextInt();
         String name = fileReader.next();
         while (fileReader.hasNext()) {
           if (fileReader.hasNextDouble() || fileReader.hasNextInt()) {
@@ -54,8 +58,8 @@ public class Main {
             name += " " + fileReader.next();
           }
         }
-        double price = fileReader.nextDouble();
-        int quantity = fileReader.nextInt();
+        final double price = fileReader.nextDouble();
+        final int quantity = fileReader.nextInt();
         if (inv.getMap().containsKey(id)) {
           inv.addItem(id, quantity);
         } else {
@@ -70,9 +74,7 @@ public class Main {
   }
 
   // Creates a log file of all products in the inventory to the program directory
-  // Log file name is always different so it does not overwrite old log file (plus waits 1 second to
-  // verify no overwritten name)
-  // Writes to the log file using the fileFormat method as the String
+  // Writes to the file using fileFormat method
   static void writeFile() {
     final String date = new SimpleDateFormat("MM-dd-yyyy_hh-mm-ss-SS").format(new Date());
     final String fileName = ("log_" + date + ".md");
@@ -103,7 +105,6 @@ public class Main {
 
   // Format for the writeFile method to use
   // Structured in markdown syntax to create a table of all the products in the inventory
-  // The lineSeparator() is unnecessary but used for ease of reading before the format to markdown
   public static String fileFormat() {
     final StringBuilder format = new StringBuilder();
     format.append("| ID | Name | Price | Quantity |" + "  " + System.lineSeparator());
@@ -111,7 +112,7 @@ public class Main {
         "| :------------: | :------------: | :-------------: | :------------: |"
             + "  "
             + System.lineSeparator());
-    for (Map.Entry<Integer, Product> i : inv.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> i : inv.getMap().entrySet()) {
       format.append(
           "| " + i.getKey() + " | " + i.getValue().toString() + "  " + System.lineSeparator());
     }
