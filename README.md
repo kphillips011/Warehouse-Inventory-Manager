@@ -27,7 +27,7 @@ Related Projects (at least 2):
 * Cloud-based approach vs on premise or ones that use a combination of both like the free, commercial product from Square
 
 How to run the program:  
-* Use inventoryIn.txt to add products into the inventory to be read by the reader.
+* Use inventoryIn.txt to add products into the inventory to be read by the reader (with format ID# Name Price Quantity).
 * At the end of the program it prints out a log.md file with a table of all the items in the inventory that can be sorted by ID, price, quantity, alphabetical ordering
 
 
