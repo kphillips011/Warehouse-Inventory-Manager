@@ -80,14 +80,14 @@ public class Inventory {
 
   // returns the Inventory sorted by item ID, in ascending order
   public void sortAscendingID() {
-    Map<Integer, Product> ascend = inventory;
+    final Map<Integer, Product> ascend = inventory;
     inventory = new TreeMap<Integer, Product>();
     inventory.putAll(ascend);
   }
 
   // returns the Inventory sorted by item ID, in descending order
   public void sortDescendingID() {
-    Map<Integer, Product> reverse = inventory;
+    final Map<Integer, Product> reverse = inventory;
     inventory = new TreeMap<Integer, Product>(Collections.reverseOrder());
     inventory.putAll(reverse);
   }
@@ -153,7 +153,7 @@ public class Inventory {
   // computes and returns the total value of the Inventory's items, taking quantity into account
   public double totalValue() {
     double totalValue = 0;
-    for (Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       Product product = entry.getValue();
       totalValue += (product.getPrice() * product.getQuantity());
     }
@@ -163,7 +163,7 @@ public class Inventory {
   // computes and returns the total quantity of items in the Inventory
   public int totalQuantity() {
     int totalQuantity = 0;
-    for (Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       Product product = entry.getValue();
       totalQuantity += product.getQuantity();
     }
@@ -180,7 +180,7 @@ public class Inventory {
   public int findLowestPricedItem() {
 
     int lowestID = getMap().entrySet().iterator().next().getValue().getNumber();
-    for (Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       double currPrice = entry.getValue().getPrice();
       if (currPrice < getMap().get(lowestID).getPrice()) {
         lowestID = entry.getValue().getNumber();
@@ -192,7 +192,7 @@ public class Inventory {
   // returns the item ID in the Inventory with the highest price
   public int findHighestPricedItem() {
     int highestID = getMap().entrySet().iterator().next().getValue().getNumber();
-    for (Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       double currPrice = entry.getValue().getPrice();
       if (currPrice > getMap().get(highestID).getPrice()) {
         highestID = entry.getValue().getNumber();
@@ -204,7 +204,7 @@ public class Inventory {
   // returns the item ID in the Inventory with the highest quantity
   public int findHighestQuantityItem() {
     int highestID = getMap().entrySet().iterator().next().getValue().getNumber();
-    for (Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       int currQuantity = entry.getValue().getQuantity();
       if (currQuantity > getMap().get(highestID).getQuantity()) {
         highestID = entry.getValue().getNumber();
@@ -216,7 +216,7 @@ public class Inventory {
   // returns the item ID in the Inventory with the lowest quantity
   public int findLowestQuantityItem() {
     int lowestID = getMap().entrySet().iterator().next().getValue().getNumber();
-    for (Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       int currQuantity = entry.getValue().getQuantity();
       if (currQuantity < getMap().get(lowestID).getQuantity()) {
         lowestID = entry.getValue().getNumber();
@@ -227,7 +227,7 @@ public class Inventory {
 
   // given a String name, returns the ID of the first item with that name
   public int findProduct(final String name) {
-    for (Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
+    for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       if (entry.getValue().getName().equalsIgnoreCase(name)) {
         return entry.getKey();
       }
