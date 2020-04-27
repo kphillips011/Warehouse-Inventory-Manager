@@ -49,7 +49,6 @@ public class InventoryTest {
     assertFalse(SUT.addProduct(new Product(3)));
   }
 
-
   @Test
   public void testAddItem() {
     assertTrue(SUT.addItem(1, 1));

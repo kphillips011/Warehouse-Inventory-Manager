@@ -1,4 +1,4 @@
-public class Product{
+public class Product {
 
   private int number; // inventory ID
   private String name;

@@ -22,10 +22,6 @@ Project Design:
 * Flexibility of use for hypothetical businesses/warehouses
 * Efficient space and time complexity
 
-Related Projects (at least 2):
-* Use of LIFO vs FIFO (our project) or ones that use a hybrid approach. 
-* Cloud-based approach vs on premise or ones that use a combination of both like the free, commercial product from Square
-
 How to run the program:  
 * Use inventoryIn.txt to add products into the inventory to be read by the reader (with format ID# Name Price Quantity).
 * The program prints out log.md files with tables of all the items in the inventory sorted by ID, price, quantity, and alphabetical ordering

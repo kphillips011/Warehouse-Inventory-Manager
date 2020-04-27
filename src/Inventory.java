@@ -19,8 +19,7 @@ public class Inventory {
   // the boolean confirms whether the ID is present or not,
   // and if the increment passed is valid
   public boolean addItem(final int ID, final int inc) {
-    if (inc <= 0)
-    {
+    if (inc <= 0) {
       System.out.println("Increment value must be greater than 0");
       return false;
     }
@@ -56,8 +55,7 @@ public class Inventory {
   // boolean confirms whether ID is present or not
   // and if the decrement passed is valid
   public boolean removeItem(final int ID, final int dec) {
-    if (dec <= 0)
-    {
+    if (dec <= 0) {
       System.out.println("Decrement value must be greater than 0");
       return false;
     }
@@ -71,8 +69,7 @@ public class Inventory {
 
   // removes the product and its associated ID from the Inventory
   public boolean removeProduct(final int ID) {
-    if (ID < 0)
-    {
+    if (ID < 0) {
       System.out.println("Error: ID cannot be less than 0");
       return false;
     }
