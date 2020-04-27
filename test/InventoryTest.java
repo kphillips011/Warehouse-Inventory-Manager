@@ -42,6 +42,12 @@ public class InventoryTest {
   }
 
   @Test
+  public void testAddProductFalse() {
+    assertFalse(SUT.addProduct(new Product(3)));
+  }
+
+
+  @Test
   public void testAddItem() {
     assertTrue(SUT.addItem(1, 1));
     assertEquals(2, SUT.getMap().get(1).getQuantity());

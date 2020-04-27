@@ -64,11 +64,16 @@ public class Inventory {
 
   // removes the product and its associated ID from the Inventory
   public boolean removeProduct(final int ID) {
+    if (ID < 0)
+    {
+      System.out.println("Error: ID cannot be less than 0");
+      return false;
+    }
     if (inventory.containsKey(ID)) {
       inventory.remove(ID);
       return true;
     } else {
-      System.out.println("Product not found so it could not be removed");
+      System.out.println("Error: Product not found so it could not be removed");
       return false;
     }
   }
