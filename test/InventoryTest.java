@@ -1,7 +1,10 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -113,102 +116,96 @@ public class InventoryTest {
 
   @Test
   public void testSortAscendingID() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod 20", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingID();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(1, SUTList.get(0).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
   @Test
   public void testSortDescendingID() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod 20", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingID();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(6, SUTList.get(0).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
   @Test
   public void testSortAscendingQuantity() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod 20", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingQuantity();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getValue().getQuantity() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(1, SUTList.get(0).getValue().getNumber());
+    assertEquals(5, SUTList.get(5).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
   @Test
   public void testSortDescendingQuantity() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod 20", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingQuantity();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getValue().getQuantity() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getPrice());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(5, SUTList.get(0).getValue().getNumber());
+    assertEquals(1, SUTList.get(5).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
   @Test
   public void testSortAscendingPrice() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod 20", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingPrice();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getValue().getPrice() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getQuantity());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(1, SUTList.get(0).getValue().getNumber());
+    assertEquals(5, SUTList.get(5).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
   @Test
   public void testSortDescendingPrice() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod 20", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod 10", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod 15", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingPrice();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getValue().getPrice() + " " + i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getQuantity());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(5, SUTList.get(0).getValue().getNumber());
+    assertEquals(1, SUTList.get(5).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
   @Test
   public void testSortAscendingName() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod b", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod a", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod c", 10.0, 150));
-    SUT.addProduct(new Product(30, "prod 4", 10.0, 150));
-    SUT.addProduct(new Product(5, "extra product", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortAscendingName();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getValue().getName() + " " + i.getKey() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(4, SUTList.get(0).getValue().getNumber());
+    assertEquals(3, SUTList.get(5).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
   @Test
   public void testSortDescendingName() {
-    setUp();
-    SUT.addProduct(new Product(20, "prod b", 15.0, 100));
-    SUT.addProduct(new Product(10, "prod a", 20.0, 200));
-    SUT.addProduct(new Product(15, "prod c", 10.0, 150));
-    SUT.addProduct(new Product(30, "prod 4", 10.0, 150));
-    SUT.addProduct(new Product(5, "extra product", 10.0, 150));
+    SUT.addProduct(new Product(4, "a product", 15.0, 100));
+    SUT.addProduct(new Product(5, "b product", 20.0, 200));
+    SUT.addProduct(new Product(6, "extra product", 10.0, 150));
     SUT.sortDescendingName();
-    for (Map.Entry<Integer, Product> i : SUT.getMap().entrySet()) {
-      System.out.println(i.getValue().getName() + " " + i.getKey() + " " + i.getValue().getPrice() + " " + i.getValue().getQuantity());
-    }
+    List<Map.Entry<Integer, Product>> SUTList = new ArrayList<>(SUT.getMap().entrySet());
+    assertEquals(3, SUTList.get(0).getValue().getNumber());
+    assertEquals(4, SUTList.get(5).getValue().getNumber());
+    System.out.println(SUTList);
   }
 
 

@@ -19,7 +19,7 @@ public class Inventory {
   // the boolean confirms whether the ID is present or not,
   // and if the increment passed is valid
   public boolean addItem(final int ID, final int inc) {
-    // TODO exception throwing and return false if inc <= 0
+    // TODO return false if inc <= 0
     if (inventory.containsKey(ID) && inc > 0) {
       inventory.get(ID).incQuantity(inc);
       return true;
@@ -53,7 +53,7 @@ public class Inventory {
   // boolean confirms whether ID is present or not
   // and if the decrement passed is valid
   public boolean removeItem(final int ID, final int dec) {
-    // TODO exception throwing and return false if dec <= 0
+    // TODO return false if dec <= 0
     if (inventory.get(ID).getQuantity() > 0 && dec > 0) {
       inventory.get(ID).decQuantity(dec);
       return true;
