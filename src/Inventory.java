@@ -232,6 +232,7 @@ public class Inventory {
   }
 
   // Given a String name, returns the ID of the first item with that name
+  // unless item cannot be found
   public int findProduct(final String name) {
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       if (entry.getValue().getName().equalsIgnoreCase(name)) {
