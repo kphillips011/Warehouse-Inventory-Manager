@@ -20,7 +20,7 @@ Project Design:
 
 How to run and use the program:  
 * Use inventoryIn.txt to add products into the inventory to be read by the reader (with format ID# Name Price Quantity)
-* The program prints out log.md files with tables of all the items in the inventory sorted by ID, price, quantity, and alphabetical ordering
+* The program prints out timestamped log.md files with tables of all the items in the inventory sorted by ID, price, quantity, and alphabetical ordering
 * The Main method shows the types of methods that can be called to search through and sort the inventory
 * Our program can be connected to an external program or GUI if needed, such as a Point of Sale system
 
