@@ -12,8 +12,8 @@ Github Repository: https://github.com/kphillips011/Warehouse-Inventory-Manager.g
 Project Design:
 * Language: Java
 * Useful data structures: Maps, Lists, Arrays, File I/O, FIFO Queue, Sorting, and possibly Recursion
-* Warehouse log where data is printed out to (total warehouse value, product ID, what has gone in and out of the warehouse that day, net profit/loss)
-* Inventory items being listed and sorted by date they came in, name, item’s ID, price, quantity, alphabetical ordering, etc
+* Warehouse log where data is printed out to
+* Inventory items being listed and sorted by item’s ID, price, quantity, alphabetical ordering, etc
 * Reading an input file of items and then adding them to the inventory
 * Adding/removing items from the inventory using methods
 * Searching through the inventory
@@ -22,17 +22,13 @@ Project Design:
 * Flexibility of use for hypothetical businesses/warehouses
 * Efficient space and time complexity
 
-
-Milestones (weekly, every Saturday):
-* April 4 - Create the “skeletons” of all classes: Main, file management classes, inventory access/management classes, and test classes. Most if not all methods should be there but the program shouldn’t really run as intended yet.
-* April 11 - At least two classes, including Main, should be passing tests and running. The inventory data structure should be able to be accessed, modified, and sorted in various ways, given a test example.
-* April 18 - File management is implemented, including reading elements from a file and adding them to the inventory, and printing data from the inventory out to a “log”. The program should be working as intended now.
-* April 25 - Final submission due! Documentation is added, code is organized and refined, and extra features (such as quantity alerts) are added.
-
-
 Related Projects (at least 2):
 * Use of LIFO vs FIFO (our project) or ones that use a hybrid approach. 
 * Cloud-based approach vs on premise or ones that use a combination of both like the free, commercial product from Square
+
+How to run the program:  
+* Use inventoryIn.txt to add products into the inventory to be read by the reader.
+* At the end of the program it prints out a log.md file with a table of all the items in the inventory that can be sorted by ID, price, quantity, alphabetical ordering
 
 
 
