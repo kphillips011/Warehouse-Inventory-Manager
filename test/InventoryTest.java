@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +15,7 @@ public class InventoryTest {
 
   @BeforeEach
   public void setUp() {
-    SUT = new Inventory(new HashMap<Integer, Product>());
+    SUT = new Inventory(new HashMap<>());
     SUT.addProduct("prod 1", 1.11, 1);
     SUT.addProduct("prod 2", 2.22, 2);
     SUT.addProduct("prod 3", 3.33, 3);

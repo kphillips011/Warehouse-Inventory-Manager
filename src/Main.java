@@ -1,4 +1,3 @@
-// imports
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -8,11 +7,11 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-// the main program reads a file stream of input 'items' and adds them to our inventory, output a
-// file
+// The main program reads a file stream of input 'items', adds them to the inventory,
+// and outputs files. We also added an average price calculation for showcasing purposes.
 public class Main {
 
-  static Inventory inv = new Inventory(new TreeMap<Integer, Product>());
+  static Inventory inv = new Inventory(new TreeMap<>());
 
   public static void main(final String[] args) {
     final String name = "inventoryIn.txt";
@@ -20,7 +19,7 @@ public class Main {
     readFile(name);
     // TODO print search method results for each search method
     // TODO show adding/removing products, quantity, etc
-    // automatically sorted by ascending ID, since it is a TreeMap
+    // Inventory is automatically sorted by ascending ID, since it is a TreeMap
     writeFile();
     inv.sortDescendingID();
     writeFile();
@@ -37,7 +36,7 @@ public class Main {
     inv.sortDescendingQuantity();
     writeFile();
 
-    // print average price of inventory
+    // Print average price of inventory
     System.out.printf("average price of inventory: $%.2f %n", inv.averagePrice());
   }
 
