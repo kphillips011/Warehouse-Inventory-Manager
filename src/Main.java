@@ -33,11 +33,9 @@ public class Main {
         int id = fileReader.nextInt();
         String name = fileReader.next();
         while (fileReader.hasNext()) {
-          if (fileReader.hasNextDouble() || fileReader.hasNextInt())
-          {
+          if (fileReader.hasNextDouble() || fileReader.hasNextInt()) {
             break;
-          }
-          else {
+          } else {
             name += " " + fileReader.next();
           }
         }
@@ -57,11 +55,11 @@ public class Main {
   }
 
   // Creates a log file of all products in the inventory to the program directory
-  // Log file name is always different so it does not overwrite old log file
+  // Log file name is always different so it does not overwrite old log file (plus waits 1 second to
+  // verify no overwritten name)
   // Writes to the log file using the fileFormat method as the String
   static void writeFile() {
-    final String date =
-        new SimpleDateFormat("MM-dd-yyyy_hh-mm-ss").format(new Date());
+    final String date = new SimpleDateFormat("MM-dd-yyyy_hh-mm-ss-SS").format(new Date());
     final String fileName = ("log_" + date + ".md");
     final File newFile = new File(fileName);
     try {
@@ -81,7 +79,7 @@ public class Main {
       e.printStackTrace();
     }
     try {
-      TimeUnit.SECONDS.sleep(1);
+      TimeUnit.MILLISECONDS.sleep(1);
     } catch (InterruptedException e) {
       System.out.println("Sleep did not work.");
       e.printStackTrace();
