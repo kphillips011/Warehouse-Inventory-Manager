@@ -12,7 +12,7 @@ Github Repository: https://github.com/kphillips011/Warehouse-Inventory-Manager.g
 Project Design:
 * Language: Java
 * Useful data structures: Maps, Lists, Arrays, File I/O, FIFO Queue, Sorting, and possibly Recursion
-* Warehouse log where data is printed out to
+* Warehouse logs where data is printed out to
 * Inventory items being listed and sorted by item’s ID, price, quantity, alphabetical ordering, etc
 * Reading an input file of items and then adding them to the inventory
 * Adding/removing items from the inventory using methods
@@ -28,7 +28,7 @@ Related Projects (at least 2):
 
 How to run the program:  
 * Use inventoryIn.txt to add products into the inventory to be read by the reader (with format ID# Name Price Quantity).
-* At the end of the program it prints out a log.md file with a table of all the items in the inventory that can be sorted by ID, price, quantity, alphabetical ordering
+* The program prints out log.md files with tables of all the items in the inventory sorted by ID, price, quantity, and alphabetical ordering
 
 
 
