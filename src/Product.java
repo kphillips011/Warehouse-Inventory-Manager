@@ -1,4 +1,4 @@
-public class Product {
+public class Product{
 
   private int number; // inventory ID
   private String name;
@@ -9,33 +9,13 @@ public class Product {
   // used when product info is unconfirmed
   public Product(final int n) {
     // calls default constructor
-    // validity check done by default constructor
+    // validity checks done by set methods
     this(n, "unnamed", 0.00, 0);
   }
 
   // constructs new Product object using number, name, price, and quantity
-  public Product(final int n, final String name, final double p, final int q)
-      throws IllegalArgumentException {
-    // validity checking for n
-    if (n < 0) {
-      throw new IllegalArgumentException("inventory ID cannot be less than 0");
-    }
-
-    // validity checking for name
-    if (name == null) {
-      throw new IllegalArgumentException("name is null");
-    }
-
-    //  validity checking for price
-    if (p < 0) {
-      throw new IllegalArgumentException("price cannot be less than 0");
-    }
-
-    // validity checking for quantity
-    if (q < 0) {
-      throw new IllegalArgumentException("quantity cannot be less than 0");
-    }
-
+  public Product(final int n, final String name, final double p, final int q) {
+    // validity checks done by set methods
     this.setNumber(n);
     this.setName(name);
     this.setPrice(p);
@@ -91,6 +71,7 @@ public class Product {
 
   // sets Product's associated quantity of items
   public void setQuantity(final int q) throws IllegalArgumentException {
+    // validity checking for quantity
     if (q < 0) {
       throw new IllegalArgumentException("Number must be 0 or greater");
     }

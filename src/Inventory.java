@@ -34,7 +34,6 @@ public class Inventory {
 
   // adds a new product to Inventory
   // name, price, and quantity of the item passed as parameter
-
   public void addProduct(final String name, final double price, final int quantity) {
     final int ID = inventory.size() + 1;
     inventory.put(ID, new Product(ID, name, price, quantity));
@@ -140,6 +139,7 @@ public class Inventory {
     }
   }
 
+  // returns the Inventory sorted by item name, in ascending order
   public void sortAscendingName() {
     List<Map.Entry<Integer, Product>> ascendName = new ArrayList<>(inventory.entrySet());
     ascendName.sort(new AscendingName());
@@ -149,6 +149,7 @@ public class Inventory {
     }
   }
 
+  // returns the Inventory sorted by item name, in descending order
   public void sortDescendingName() {
     List<Map.Entry<Integer, Product>> descendName = new ArrayList<>(inventory.entrySet());
     descendName.sort(Collections.reverseOrder(new AscendingName()));
@@ -262,12 +263,6 @@ public class Inventory {
               + inventory.get(ID).getQuantity());
     } else {
       System.out.println("Sorry, ID not found");
-    }
-  }
-
-  public void printResult() {
-    for (Map.Entry<Integer, Product> i : inventory.entrySet()) {
-      System.out.println(i.getKey() + " " + i.getValue().getName() + " " + i.getValue().getQuantity() + " " + i.getValue().getQuantity());
     }
   }
 }
