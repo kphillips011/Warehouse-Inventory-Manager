@@ -8,14 +8,13 @@ This program is a warehouse inventory manager that incorporates file I/O and all
 
 Project Design:
 * Language: Java
-* Useful data structures: Maps, Lists, Arrays, File I/O, FIFO Queue, Sorting, and possibly Recursion
-* Warehouse logs where data can be printed out to
-* Inventory items listed and sorted by ID, name, price, and quantity
+* Data structures: Maps, Lists, Arrays, File I/O, and Sorting
+* Printing data out to Warehouse logs
+* Inventory items organized, sorted, and managed by ID, name, price, and quantity
 * Reading an input file of items and then adding them to the inventory
-* Adding/removing items from the inventory using methods
+* Adding/removing items from the inventory
 * Searching through the inventory
-* Alerting the user if a certain item’s quantity is too low, possibly using recursion
-* Documentation for the program’s users
+* Alerting the user if a certain item’s quantity is too low while removing items
 * Flexibility of use for hypothetical businesses/warehouses
 * Efficient space and time complexity
 
