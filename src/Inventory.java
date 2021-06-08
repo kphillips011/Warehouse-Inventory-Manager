@@ -4,7 +4,12 @@ public class Inventory {
 
   private Map<Integer, Product> inventory;
 
-  // Default constructor; creates new Inventory
+  // Constructor; creates new Inventory
+  public Inventory() {
+    this.inventory = new TreeMap<>();
+  }
+
+  // Constructor; creates new Inventory
   public Inventory(final Map<Integer, Product> i) {
     this.inventory = i;
   }
@@ -19,13 +24,8 @@ public class Inventory {
   // The boolean confirms whether the ID is present or not,
   // and if the increment passed is valid
   public boolean addItem(final int ID, final int inc) {
-    if (inc <= 0) {
-      System.out.println("Increment value must be greater than 0");
-      return false;
-    }
     if (inventory.containsKey(ID)) {
-      inventory.get(ID).incQuantity(inc);
-      return true;
+      return inventory.get(ID).incQuantity(inc);
     } else {
       return false;
     }
@@ -55,13 +55,8 @@ public class Inventory {
   // Boolean confirms whether ID is present or not
   // and if the decrement passed is valid
   public boolean removeItem(final int ID, final int dec) {
-    if (dec <= 0) {
-      System.out.println("Decrement value must be greater than 0");
-      return false;
-    }
-    if (inventory.containsKey(ID) && inventory.get(ID).getQuantity() > 0) {
-      inventory.get(ID).decQuantity(dec);
-      return true;
+    if (inventory.containsKey(ID)) {
+      return inventory.get(ID).decQuantity(dec);
     } else {
       return false;
     }
@@ -97,8 +92,7 @@ public class Inventory {
   public int totalQuantity() {
     int totalQuantity = 0;
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
-      Product product = entry.getValue();
-      totalQuantity += product.getQuantity();
+      totalQuantity += entry.getValue().getQuantity();
     }
     return totalQuantity;
   }

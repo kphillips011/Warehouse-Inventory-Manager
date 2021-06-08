@@ -78,14 +78,23 @@ public class Product {
   }
 
   // Increments quantity by specified number
-  public void incQuantity(final int num) {
+  public boolean incQuantity(final int num) {
+    if (num <= 0) {
+      System.out.println("Increment value must be greater than 0");
+      return false;
+    }
     this.quantity += num;
+    return true;
   }
 
   // Decrements quantity by specified number and
   // makes sure that the method won't decrement the quantity below 0
   // Prints alerts to the console if quantity reaches a low amount or zero
-  public void decQuantity(final int num) {
+  public boolean decQuantity(final int num) {
+    if (num <= 0) {
+      System.out.println("Decrement value must be greater than 0");
+      return false;
+    }
     int count = num;
     while (this.quantity > 0 && count > 0) {
       this.quantity -= 1;
@@ -93,10 +102,11 @@ public class Product {
       if (this.quantity == 0) {
         System.out.println("Quantity is 0. Please restock this product.");
       }
-      if (this.quantity < 3 && this.quantity > 0) {
+      else if (this.quantity < 3) {
         System.out.println("Low quantity alert. Please restock this product.");
       }
     }
+    return true;
   }
 
   // Outputs the format for the log
