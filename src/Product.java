@@ -30,7 +30,7 @@ public class Product {
   public void setNumber(final int n) throws IllegalArgumentException {
     // Validity checking for n
     if (n < 0) {
-      throw new IllegalArgumentException("inventory ID cannot be less than 0");
+      throw new IllegalArgumentException("Inventory ID cannot be less than 0");
     }
     this.number = n;
   }
@@ -44,7 +44,7 @@ public class Product {
   public void setName(final String name) throws IllegalArgumentException {
     // Validity checking for name
     if (name == null) {
-      throw new IllegalArgumentException("name is null");
+      throw new IllegalArgumentException("Name is null");
     }
     this.name = name;
   }
@@ -58,7 +58,7 @@ public class Product {
   public void setPrice(final double p) throws IllegalArgumentException {
     //  Validity checking for price
     if (p < 0) {
-      throw new IllegalArgumentException("price cannot be less than 0");
+      throw new IllegalArgumentException("Price cannot be less than 0");
     }
     this.price = p;
   }

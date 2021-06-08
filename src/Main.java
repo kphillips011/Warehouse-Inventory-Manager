@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 // and outputs files. We also added an average price calculation for showcasing purposes.
 public class Main {
 
+  // Use TreeMap because we don't know the number of products we will add to the inventory
   static Inventory inv = new Inventory(new TreeMap<>());
 
   public static void main(final String[] args) {
@@ -18,13 +19,13 @@ public class Main {
     readFile(name);
 
     // Print results of search methods
-    System.out.println("Highest priced item: "
+    System.out.println("Highest priced product: "
             + inv.getMap().get(inv.findHighestPricedItem()).getName());
-    System.out.println("Lowest priced item: "
+    System.out.println("Lowest priced product: "
             + inv.getMap().get(inv.findLowestPricedItem()).getName());
-    System.out.println("Item with highest quantity: "
+    System.out.println("Product with highest quantity: "
             + inv.getMap().get(inv.findHighestQuantityItem()).getName());
-    System.out.println("Item with lowest quantity: "
+    System.out.println("Product with lowest quantity: "
             + inv.getMap().get(inv.findLowestQuantityItem()).getName());
     System.out.println();
 

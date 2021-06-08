@@ -14,7 +14,7 @@ public class Inventory {
     return this.inventory;
   }
 
-  // Increments quantity of item with specified ID;
+  // Increments quantity of product with specified ID;
   // ID passed as parameter
   // The boolean confirms whether the ID is present or not,
   // and if the increment passed is valid
@@ -32,7 +32,7 @@ public class Inventory {
   }
 
   // Adds a new product to Inventory
-  // Name, price, and quantity of the item passed as parameter
+  // Name, price, and quantity of the product passed as parameter
   public void addProduct(final String name, final double price, final int quantity) {
     final int ID = inventory.size() + 1;
     inventory.put(ID, new Product(ID, name, price, quantity));
@@ -50,7 +50,7 @@ public class Inventory {
     }
   }
 
-  // Decrement item quantity, unless quantity is already at 0
+  // Decrement product quantity, unless quantity is already at 0
   // ID and decrement value passed as parameters
   // Boolean confirms whether ID is present or not
   // and if the decrement passed is valid
@@ -83,81 +83,7 @@ public class Inventory {
     }
   }
 
-  // Sorts the inventory by item ID, in ascending order
-  public void sortAscendingID() {
-    final Map<Integer, Product> ascend = inventory;
-    inventory = new TreeMap<>();
-    inventory.putAll(ascend);
-  }
-
-  // Sorts the inventory by item ID, in descending order
-  public void sortDescendingID() {
-    final Map<Integer, Product> reverse = inventory;
-    inventory = new TreeMap<>(Collections.reverseOrder());
-    inventory.putAll(reverse);
-  }
-
-  // Sorts the inventory by item quantity, in ascending order
-  public void sortAscendingQuantity() {
-    List<Map.Entry<Integer, Product>> ascendQuantity = new ArrayList<>(inventory.entrySet());
-    ascendQuantity.sort(Collections.reverseOrder(new DescendingQuantity()));
-    inventory = new LinkedHashMap<>();
-    for (Map.Entry<Integer, Product> i : ascendQuantity) {
-      inventory.put(i.getKey(), i.getValue());
-    }
-  }
-
-  // Sorts the inventory by item quantity, in descending order
-  public void sortDescendingQuantity() {
-    List<Map.Entry<Integer, Product>> descendQuantity = new ArrayList<>(inventory.entrySet());
-    descendQuantity.sort(new DescendingQuantity());
-    inventory = new LinkedHashMap<>();
-    for (Map.Entry<Integer, Product> i : descendQuantity) {
-      inventory.put(i.getKey(), i.getValue());
-    }
-  }
-
-  // Sorts the inventory by item price, in ascending order
-  public void sortAscendingPrice() {
-    List<Map.Entry<Integer, Product>> ascendPrice = new ArrayList<>(inventory.entrySet());
-    ascendPrice.sort(Collections.reverseOrder(new DescendingPrice()));
-    inventory = new LinkedHashMap<>();
-    for (Map.Entry<Integer, Product> i : ascendPrice) {
-      inventory.put(i.getKey(), i.getValue());
-    }
-  }
-
-  // Sorts the inventory by item price, in descending order
-  public void sortDescendingPrice() {
-    List<Map.Entry<Integer, Product>> descendPrice = new ArrayList<>(inventory.entrySet());
-    descendPrice.sort(new DescendingPrice());
-    inventory = new LinkedHashMap<>();
-    for (Map.Entry<Integer, Product> i : descendPrice) {
-      inventory.put(i.getKey(), i.getValue());
-    }
-  }
-
-  // Sorts the inventory by item name, in ascending order
-  public void sortAscendingName() {
-    List<Map.Entry<Integer, Product>> ascendName = new ArrayList<>(inventory.entrySet());
-    ascendName.sort(new AscendingName());
-    inventory = new LinkedHashMap<>();
-    for (Map.Entry<Integer, Product> i : ascendName) {
-      inventory.put(i.getKey(), i.getValue());
-    }
-  }
-
-  // Sorts the inventory by item name, in descending order
-  public void sortDescendingName() {
-    List<Map.Entry<Integer, Product>> descendName = new ArrayList<>(inventory.entrySet());
-    descendName.sort(Collections.reverseOrder(new AscendingName()));
-    inventory = new LinkedHashMap<>();
-    for (Map.Entry<Integer, Product> i : descendName) {
-      inventory.put(i.getKey(), i.getValue());
-    }
-  }
-
-  // Computes and returns the total value of the Inventory's items, taking quantity into account
+  // Computes and returns the total value of the Inventory's products, taking quantity into account
   public double totalValue() {
     double totalValue = 0;
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
@@ -167,7 +93,7 @@ public class Inventory {
     return totalValue;
   }
 
-  // Computes and returns the total quantity of items in the Inventory
+  // Computes and returns the total quantity of products in the Inventory
   public int totalQuantity() {
     int totalQuantity = 0;
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
@@ -177,14 +103,13 @@ public class Inventory {
     return totalQuantity;
   }
 
-  // Computes and returns the average price of the Inventory's items, taking quantity into account
+  // Computes and returns the average price of the Inventory's products, taking quantity into account
   public double averagePrice() {
     return this.totalValue() / this.totalQuantity();
   }
 
-  // Returns the item ID in the Inventory with the lowest price
+  // Returns the product ID in the Inventory with the lowest price
   public int findLowestPricedItem() {
-
     int lowestID = getMap().entrySet().iterator().next().getValue().getNumber();
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       double currPrice = entry.getValue().getPrice();
@@ -195,7 +120,7 @@ public class Inventory {
     return lowestID;
   }
 
-  // Returns the item ID in the Inventory with the highest price
+  // Returns the product ID in the Inventory with the highest price
   public int findHighestPricedItem() {
     int highestID = getMap().entrySet().iterator().next().getValue().getNumber();
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
@@ -207,7 +132,7 @@ public class Inventory {
     return highestID;
   }
 
-  // Returns the item ID in the Inventory with the highest quantity
+  // Returns the product ID in the Inventory with the highest quantity
   public int findHighestQuantityItem() {
     int highestID = getMap().entrySet().iterator().next().getValue().getNumber();
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
@@ -219,7 +144,7 @@ public class Inventory {
     return highestID;
   }
 
-  // Returns the item ID in the Inventory with the lowest quantity
+  // Returns the product ID in the Inventory with the lowest quantity
   public int findLowestQuantityItem() {
     int lowestID = getMap().entrySet().iterator().next().getValue().getNumber();
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
@@ -231,16 +156,90 @@ public class Inventory {
     return lowestID;
   }
 
-  // Given a String name, returns the ID of the first item with that name
-  // unless item cannot be found
+  // Given a String name, returns the ID of the first product with that name
+  // unless product cannot be found
   public int findProduct(final String name) {
     for (final Map.Entry<Integer, Product> entry : this.getMap().entrySet()) {
       if (entry.getValue().getName().equalsIgnoreCase(name)) {
         return entry.getKey();
       }
     }
-    System.out.println("Could not find an item with that name");
+    System.out.println("Could not find a product with that name");
     return -1;
+  }
+
+  // Sorts the inventory by product ID, in ascending order
+  public void sortAscendingID() {
+    final Map<Integer, Product> ascend = inventory;
+    inventory = new TreeMap<>();
+    inventory.putAll(ascend);
+  }
+
+  // Sorts the inventory by product ID, in descending order
+  public void sortDescendingID() {
+    final Map<Integer, Product> reverse = inventory;
+    inventory = new TreeMap<>(Collections.reverseOrder());
+    inventory.putAll(reverse);
+  }
+
+  // Sorts the inventory by product quantity, in ascending order
+  public void sortAscendingQuantity() {
+    List<Map.Entry<Integer, Product>> ascendQuantity = new ArrayList<>(inventory.entrySet());
+    ascendQuantity.sort(Collections.reverseOrder(new DescendingQuantity()));
+    inventory = new LinkedHashMap<>();
+    for (Map.Entry<Integer, Product> i : ascendQuantity) {
+      inventory.put(i.getKey(), i.getValue());
+    }
+  }
+
+  // Sorts the inventory by product quantity, in descending order
+  public void sortDescendingQuantity() {
+    List<Map.Entry<Integer, Product>> descendQuantity = new ArrayList<>(inventory.entrySet());
+    descendQuantity.sort(new DescendingQuantity());
+    inventory = new LinkedHashMap<>();
+    for (Map.Entry<Integer, Product> i : descendQuantity) {
+      inventory.put(i.getKey(), i.getValue());
+    }
+  }
+
+  // Sorts the inventory by product price, in ascending order
+  public void sortAscendingPrice() {
+    List<Map.Entry<Integer, Product>> ascendPrice = new ArrayList<>(inventory.entrySet());
+    ascendPrice.sort(Collections.reverseOrder(new DescendingPrice()));
+    inventory = new LinkedHashMap<>();
+    for (Map.Entry<Integer, Product> i : ascendPrice) {
+      inventory.put(i.getKey(), i.getValue());
+    }
+  }
+
+  // Sorts the inventory by product price, in descending order
+  public void sortDescendingPrice() {
+    List<Map.Entry<Integer, Product>> descendPrice = new ArrayList<>(inventory.entrySet());
+    descendPrice.sort(new DescendingPrice());
+    inventory = new LinkedHashMap<>();
+    for (Map.Entry<Integer, Product> i : descendPrice) {
+      inventory.put(i.getKey(), i.getValue());
+    }
+  }
+
+  // Sorts the inventory by product name, in ascending order
+  public void sortAscendingName() {
+    List<Map.Entry<Integer, Product>> ascendName = new ArrayList<>(inventory.entrySet());
+    ascendName.sort(new AscendingName());
+    inventory = new LinkedHashMap<>();
+    for (Map.Entry<Integer, Product> i : ascendName) {
+      inventory.put(i.getKey(), i.getValue());
+    }
+  }
+
+  // Sorts the inventory by product name, in descending order
+  public void sortDescendingName() {
+    List<Map.Entry<Integer, Product>> descendName = new ArrayList<>(inventory.entrySet());
+    descendName.sort(Collections.reverseOrder(new AscendingName()));
+    inventory = new LinkedHashMap<>();
+    for (Map.Entry<Integer, Product> i : descendName) {
+      inventory.put(i.getKey(), i.getValue());
+    }
   }
 
   // Returns String representation of the Inventory

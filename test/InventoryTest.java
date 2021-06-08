@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryTest {
 
-  Inventory SUT;
+  private Inventory SUT;
   private static final double DELTA = 0.000001;
 
   @BeforeEach
   public void setUp() {
-    SUT = new Inventory(new HashMap<>());
+    SUT = new Inventory(new HashMap<>()); // Use HashMap since we know the number of elements we are adding
     SUT.addProduct("prod 1", 1.11, 1);
     SUT.addProduct("prod 2", 2.22, 2);
     SUT.addProduct("prod 3", 3.33, 3);
