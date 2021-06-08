@@ -113,6 +113,98 @@ public class InventoryTest {
   }
 
   @Test
+  public void testTotalValue() {
+    assertEquals(15.54, SUT.totalValue(), DELTA);
+  }
+
+  @Test
+  public void testTotalValue2() {
+    SUT.addItem(3, 1);
+    assertEquals(18.87, SUT.totalValue(), DELTA);
+  }
+
+  @Test
+  public void testTotalQuantity() {
+    assertEquals(6, SUT.totalQuantity());
+  }
+
+  @Test
+  public void testTotalQuantity2() {
+    SUT.addItem(1, 4);
+    assertEquals(10, SUT.totalQuantity());
+  }
+
+  @Test
+  public void testAveragePrice() {
+    assertEquals(2.59, SUT.averagePrice(), DELTA);
+  }
+
+  @Test
+  public void testAveragePrice2() {
+    SUT.removeProduct(2);
+    assertEquals(2.775, SUT.averagePrice(), DELTA);
+  }
+
+  @Test
+  public void testFindLowestPricedItem() {
+    assertEquals(1, SUT.findLowestPricedItem());
+  }
+
+  @Test
+  public void testFindLowestPricedItem2() {
+    SUT.addProduct("prod 4", 1.00, 1);
+    assertEquals(4, SUT.findLowestPricedItem());
+  }
+
+  @Test
+  public void testFindHighestPricedItem() {
+    assertEquals(3, SUT.findHighestPricedItem());
+  }
+
+  @Test
+  public void testFindHighestPricedItem2() {
+    SUT.addProduct("prod 4", 30.00, 1);
+    assertEquals(4, SUT.findHighestPricedItem());
+  }
+
+  @Test
+  public void testFindLowestQuantityItem() {
+    assertEquals(1, SUT.findLowestQuantityItem());
+  }
+
+  @Test
+  public void testFindLowestQuantityItem2() {
+    SUT.addItem(1, 4);
+    assertEquals(2, SUT.findLowestQuantityItem());
+  }
+
+  @Test
+  public void testFindHighestQuantityItem() {
+    assertEquals(3, SUT.findHighestQuantityItem());
+  }
+
+  @Test
+  public void testFindHighestQuantityItem2() {
+    SUT.addItem(1, 30);
+    assertEquals(1, SUT.findHighestQuantityItem());
+  }
+
+  @Test
+  public void testFindProduct() {
+    assertEquals(2, SUT.findProduct("prod 2"));
+  }
+
+  @Test
+  public void testFindProduct2() {
+    assertEquals(2, SUT.findProduct("Prod 2"));
+  }
+
+  @Test
+  public void testFindProduct3() {
+    assertEquals(-1, SUT.findProduct("prod2"));
+  }
+
+  @Test
   public void testSortAscendingID() {
     SUT.addProduct(new Product(4, "a product", 15.0, 100));
     SUT.addProduct(new Product(5, "b product", 20.0, 200));
@@ -204,97 +296,5 @@ public class InventoryTest {
     assertEquals(3, SUTList.get(0).getValue().getNumber());
     assertEquals(4, SUTList.get(5).getValue().getNumber());
     System.out.println(SUTList);
-  }
-
-  @Test
-  public void testTotalValue() {
-    assertEquals(15.54, SUT.totalValue(), DELTA);
-  }
-
-  @Test
-  public void testTotalValue2() {
-    SUT.addItem(3, 1);
-    assertEquals(18.87, SUT.totalValue(), DELTA);
-  }
-
-  @Test
-  public void testTotalQuantity() {
-    assertEquals(6, SUT.totalQuantity());
-  }
-
-  @Test
-  public void testTotalQuantity2() {
-    SUT.addItem(1, 4);
-    assertEquals(10, SUT.totalQuantity());
-  }
-
-  @Test
-  public void testAveragePrice() {
-    assertEquals(2.59, SUT.averagePrice(), DELTA);
-  }
-
-  @Test
-  public void testAveragePrice2() {
-    SUT.removeProduct(2);
-    assertEquals(2.775, SUT.averagePrice(), DELTA);
-  }
-
-  @Test
-  public void testFindLowestPricedItem() {
-    assertEquals(1, SUT.findLowestPricedItem());
-  }
-
-  @Test
-  public void testFindLowestPricedItem2() {
-    SUT.addProduct("prod 4", 1.00, 1);
-    assertEquals(4, SUT.findLowestPricedItem());
-  }
-
-  @Test
-  public void testFindHighestPricedItem() {
-    assertEquals(3, SUT.findHighestPricedItem());
-  }
-
-  @Test
-  public void testFindHighestPricedItem2() {
-    SUT.addProduct("prod 4", 30.00, 1);
-    assertEquals(4, SUT.findHighestPricedItem());
-  }
-
-  @Test
-  public void testFindLowestQuantityItem() {
-    assertEquals(1, SUT.findLowestQuantityItem());
-  }
-
-  @Test
-  public void testFindLowestQuantityItem2() {
-    SUT.addItem(1, 4);
-    assertEquals(2, SUT.findLowestQuantityItem());
-  }
-
-  @Test
-  public void testFindHighestQuantityItem() {
-    assertEquals(3, SUT.findHighestQuantityItem());
-  }
-
-  @Test
-  public void testFindHighestQuantityItem2() {
-    SUT.addItem(1, 30);
-    assertEquals(1, SUT.findHighestQuantityItem());
-  }
-
-  @Test
-  public void testFindProduct() {
-    assertEquals(2, SUT.findProduct("prod 2"));
-  }
-
-  @Test
-  public void testFindProduct2() {
-    assertEquals(2, SUT.findProduct("Prod 2"));
-  }
-
-  @Test
-  public void testFindProduct3() {
-    assertEquals(-1, SUT.findProduct("prod2"));
   }
 }
