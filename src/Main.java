@@ -32,11 +32,11 @@ public class Main {
     // Inventory is automatically sorted by ascending ID, since it is a TreeMap
     writeFile();
 
-    // Add 2 "Tesla Diamond Edition Roadster" to the Inventory
+    // Add 2 "Samsung Galaxy S30" to the Inventory
     inv.addItem(200,2);
     writeFile();
 
-    // Remove "Tesla Diamond Edition Roadster" Product from the Inventory
+    // Remove "Samsung Galaxy S30" Product from the Inventory
     inv.removeProduct(200);
     writeFile();
 
